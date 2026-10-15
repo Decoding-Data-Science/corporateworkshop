@@ -1,521 +1,677 @@
+<title>DDS Corporate Training</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <!-- ============================================================
-  Decoding Data Science — Corporate Training homepage
-  Single-file page. Paste into a WordPress Custom HTML block
-  (remove the <title> and <meta> lines above when embedding).
+  Decoding Data Science — Corporate AI Training & Innovation
+  Single-file page. For WordPress: paste into a Custom HTML block
+  and delete the <title> and <meta> lines above.
   All CSS/JS scoped under #dds-corp.
   ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
- 
+
 <style>
-  /* Layout concept: a control-room page. Hero pairs the promise with a live query console;
-     the sector switcher below is the centrepiece, showing real sandbox schemas per industry. */
+  /* Layout: premium dark control room. Real classroom photo hero with light beams,
+     client marquee, build-vs-hire case, three service pillars, then proof (photos, CPD, trainer). */
   :root{color-scheme:dark}
-  body{background:#070b14}
+  body{background:#05080f;margin:0}
   #dds-corp{
-    --bg:#070b14; --bg2:#0d1424; --panel:#101a2e; --panel2:#0b1322; --line:rgba(140,170,220,.14);
-    --cyan:#22d3ee; --violet:#8b5cf6; --amber:#f5a623; --green:#34d399;
-    --txt:#e7edf7; --muted:#94a3bd; --ink:#06101c;
+    --bg:#05080f; --bg2:#0a101d; --panel:#0e1627; --panel2:#0a1220; --line:rgba(150,180,230,.13); --line2:rgba(150,180,230,.22);
+    --cyan:#22d3ee; --violet:#8b5cf6; --gold:#d9b25f; --gold2:#f3d48a; --green:#34d399; --red:#f87171;
+    --txt:#eef2fa; --muted:#9aa7c0; --ink:#06101c;
     --grad:linear-gradient(92deg,#22d3ee 0%,#8b5cf6 100%);
+    --gold-grad:linear-gradient(92deg,#d9b25f,#f3d48a 50%,#d9b25f);
     --f-display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
     --f-body:'Inter',ui-sans-serif,system-ui,sans-serif;
     --f-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-    --radius:16px;
-    font-family:var(--f-body); background:var(--bg); color:var(--txt);
-    line-height:1.6; font-size:16px; overflow-x:hidden;
+    --r:18px;
+    font-family:var(--f-body);background:var(--bg);color:var(--txt);line-height:1.6;font-size:16px;overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
   #dds-corp *,#dds-corp *::before,#dds-corp *::after{box-sizing:border-box;margin:0;padding:0}
   #dds-corp img{max-width:100%;display:block}
   #dds-corp a{text-decoration:none;color:inherit}
   #dds-corp a:focus-visible,#dds-corp button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
-  #dds-corp .wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-  #dds-corp section{padding-block:84px;position:relative}
-  #dds-corp h1,#dds-corp h2,#dds-corp h3{font-family:var(--f-display);line-height:1.12;letter-spacing:-.015em;text-wrap:balance}
-  #dds-corp h2{font-size:clamp(28px,4vw,42px);margin-bottom:14px}
-  #dds-corp .kicker{font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
-  #dds-corp .kicker::before{content:"";width:22px;height:1px;background:var(--cyan)}
-  #dds-corp .lead{color:var(--muted);font-size:17px;max-width:66ch}
-  #dds-corp .head{display:grid;gap:4px;margin-bottom:40px}
+  #dds-corp .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  #dds-corp section{padding-block:96px;position:relative}
+  #dds-corp h1,#dds-corp h2,#dds-corp h3{font-family:var(--f-display);line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+  #dds-corp h2{font-size:clamp(30px,4.4vw,48px);margin-bottom:16px}
+  #dds-corp .kicker{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  #dds-corp .kicker::before{content:"";width:26px;height:1px;background:currentColor}
+  #dds-corp .kicker.gold{color:var(--gold)}
+  #dds-corp .lead{color:var(--muted);font-size:17.5px;max-width:64ch}
+  #dds-corp .head{margin-bottom:48px}
+  #dds-corp .head.center{text-align:center}
+  #dds-corp .head.center .lead{margin-inline:auto}
   #dds-corp .gx{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
- 
-  /* reveal: only elements below the fold get hidden, by script */
-  #dds-corp .rv.pre{opacity:0;transform:translateY(20px)}
-  #dds-corp .rv{transition:opacity .6s ease,transform .6s ease}
-  @media (prefers-reduced-motion:reduce){#dds-corp *{animation:none!important;transition:none!important}#dds-corp .rv.pre{opacity:1;transform:none}}
- 
-  /* ---------- Hero ---------- */
-  #dds-corp .hero{padding-block:56px 72px;background:
-    radial-gradient(900px 500px at 85% -10%,rgba(139,92,246,.24),transparent 60%),
-    radial-gradient(700px 440px at 5% 10%,rgba(34,211,238,.14),transparent 60%),var(--bg)}
-  #dds-corp .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background-image:linear-gradient(rgba(140,170,220,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(140,170,220,.05) 1px,transparent 1px);
-    background-size:44px 44px;mask-image:radial-gradient(700px 420px at 50% 10%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(700px 420px at 50% 10%,#000 30%,transparent 75%)}
-  #dds-corp .hero .wrap{position:relative;z-index:1}
-  #dds-corp .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:48px}
-  #dds-corp .logo{height:38px;width:auto}
-  #dds-corp .topbar .tb-tag{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:rgba(16,26,46,.6)}
-  #dds-corp .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  #dds-corp .hero-grid>*{min-width:0}
-  #dds-corp .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  #dds-corp .badge{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:5px 13px;color:var(--muted);background:rgba(16,26,46,.6)}
-  #dds-corp .badge.hot{border-color:rgba(34,211,238,.5);color:var(--cyan)}
-  #dds-corp .badge.live{border-color:rgba(245,166,35,.5);color:var(--amber)}
-  #dds-corp .badge.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:7px;vertical-align:1px;animation:dds-pulse 1.6s infinite}
-  @keyframes dds-pulse{0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,.5)}50%{box-shadow:0 0 0 6px rgba(245,166,35,0)}}
-  #dds-corp .hero h1{font-size:clamp(34px,5.2vw,58px);font-weight:700;margin-bottom:20px}
-  #dds-corp .hero .sub{color:var(--muted);font-size:17.5px;max-width:58ch;margin-bottom:30px}
+  #dds-corp .gold-t{background:var(--gold-grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:dds-shine 6s linear infinite}
+  @keyframes dds-shine{to{background-position:-200% 0}}
+
+  /* reveal (only below the fold, added by script) */
+  #dds-corp .rv{transition:opacity .7s ease,transform .7s ease}
+  #dds-corp .rv.pre{opacity:0;transform:translateY(24px)}
+
+  /* buttons */
+  #dds-corp .btn{font-family:var(--f-display);font-weight:600;border-radius:12px;padding:15px 26px;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s,border-color .2s,color .2s,background .2s;cursor:pointer;position:relative;overflow:hidden;white-space:nowrap}
+  #dds-corp .btn-p{background:var(--grad);color:var(--ink);box-shadow:0 10px 30px rgba(34,211,238,.3)}
+  #dds-corp .btn-p::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:dds-sweep 3.6s ease-in-out infinite}
+  @keyframes dds-sweep{0%,55%{left:-60%}100%{left:130%}}
+  #dds-corp .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(139,92,246,.45)}
+  #dds-corp .btn-s{border:1px solid var(--line2);color:var(--txt);background:rgba(14,22,39,.55);backdrop-filter:blur(8px)}
+  #dds-corp .btn-s:hover{border-color:rgba(34,211,238,.6);color:var(--cyan)}
+  #dds-corp .btn-g{background:var(--gold-grad);background-size:200% 100%;color:#1a1204;animation:dds-shine 6s linear infinite}
+
+  /* ---------- NAV ---------- */
+  #dds-corp .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;background:rgba(5,8,15,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  #dds-corp .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+  #dds-corp .nav .logo{height:46px;width:auto}
+  #dds-corp .nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+  #dds-corp .nav-links a:hover{color:var(--txt)}
+  #dds-corp .nav .btn{padding:10px 18px;font-size:14px}
+
+  /* ---------- HERO ---------- */
+  #dds-corp .hero{padding-block:0;min-height:0;overflow:hidden;isolation:isolate}
+  #dds-corp .hero-bg{position:absolute;inset:0;z-index:-2}
+  #dds-corp .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;transform:scale(1.06);animation:dds-kb 22s ease-in-out infinite alternate}
+  @keyframes dds-kb{to{transform:scale(1.14) translate(-1.5%,-1%)}}
+  #dds-corp .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+    linear-gradient(90deg,rgba(5,8,15,.97) 0%,rgba(5,8,15,.9) 38%,rgba(5,8,15,.55) 70%,rgba(5,8,15,.35) 100%),
+    linear-gradient(0deg,rgba(5,8,15,1) 0%,rgba(5,8,15,0) 35%),
+    radial-gradient(700px 400px at 15% 20%,rgba(34,211,238,.18),transparent 60%),
+    radial-gradient(600px 400px at 85% 90%,rgba(139,92,246,.25),transparent 60%)}
+  #dds-corp .beams{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+  #dds-corp .beam{position:absolute;height:1px;width:40%;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.0;animation:dds-beam 7s linear infinite}
+  #dds-corp .beam:nth-child(1){top:22%;animation-delay:0s}
+  #dds-corp .beam:nth-child(2){top:48%;animation-delay:2.4s;background:linear-gradient(90deg,transparent,var(--violet),transparent)}
+  #dds-corp .beam:nth-child(3){top:74%;animation-delay:4.6s;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  @keyframes dds-beam{0%{left:-40%;opacity:0}10%{opacity:.9}60%{opacity:.6}100%{left:110%;opacity:0}}
+  #dds-corp .hero .wrap{padding-block:110px 90px}
+  #dds-corp .hero-inner{max-width:720px}
+  #dds-corp .pill{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--txt);border:1px solid var(--line2);background:rgba(14,22,39,.6);backdrop-filter:blur(8px);border-radius:999px;padding:7px 14px 7px 8px;margin-bottom:26px}
+  #dds-corp .pill b{background:var(--gold-grad);color:#1a1204;font-weight:700;border-radius:999px;padding:3px 10px;font-size:11px;letter-spacing:.08em}
+  #dds-corp .hero h1{font-size:clamp(38px,6vw,72px);font-weight:700;margin-bottom:22px}
+  #dds-corp .hero .sub{color:#c3cde0;font-size:clamp(16.5px,1.6vw,19px);max-width:60ch;margin-bottom:34px}
   #dds-corp .cta-row{display:flex;flex-wrap:wrap;gap:14px}
-  #dds-corp .btn{font-family:var(--f-display);font-weight:600;border-radius:12px;padding:15px 28px;font-size:16px;display:inline-flex;align-items:center;gap:9px;transition:transform .2s,box-shadow .2s,border-color .2s,color .2s;cursor:pointer}
-  #dds-corp .btn-p{background:var(--grad);color:var(--ink);box-shadow:0 8px 28px rgba(34,211,238,.28)}
-  #dds-corp .btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(139,92,246,.4)}
-  #dds-corp .btn-s{border:1px solid var(--line);color:var(--txt);background:rgba(16,26,46,.5)}
-  #dds-corp .btn-s:hover{border-color:rgba(34,211,238,.55);color:var(--cyan)}
-  #dds-corp .hero .note{margin-top:16px;font-size:13px;color:var(--muted)}
- 
-  /* console */
-  #dds-corp .console{background:linear-gradient(180deg,#0c1528,#08101e);border:1px solid rgba(34,211,238,.25);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(139,92,246,.08) inset;overflow:hidden}
-  #dds-corp .c-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(16,26,46,.7)}
-  #dds-corp .c-bar i{width:10px;height:10px;border-radius:50%;background:#26324a}
-  #dds-corp .c-bar i:first-child{background:var(--amber)}
-  #dds-corp .c-bar span{margin-left:8px;font-family:var(--f-mono);font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  #dds-corp .c-tabs{display:flex;gap:6px;padding:12px 16px 0;flex-wrap:wrap}
-  #dds-corp .c-tab{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:7px;border:1px solid var(--line);color:var(--muted);background:none;cursor:pointer}
-  #dds-corp .c-tab[aria-selected="true"]{color:var(--cyan);border-color:rgba(34,211,238,.5);background:rgba(34,211,238,.08)}
-  #dds-corp pre.code{font-family:var(--f-mono);font-size:13px;line-height:1.7;padding:16px 18px 6px;color:#c9d6ee;white-space:pre-wrap;word-break:break-word;min-height:150px}
-  #dds-corp .code .k{color:#c4b5fd}
-  #dds-corp .code .c{color:#5f7090}
-  #dds-corp .code .s{color:var(--amber)}
-  #dds-corp .code .cur{display:inline-block;width:8px;height:15px;background:var(--cyan);vertical-align:-2px;animation:dds-blink 1s steps(1) infinite}
-  @keyframes dds-blink{50%{opacity:0}}
-  #dds-corp .result{margin:6px 16px 16px;border:1px solid var(--line);border-radius:10px;overflow-x:auto}
-  #dds-corp .result table{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
-  #dds-corp .result th{text-align:left;color:var(--muted);font-weight:500;padding:8px 12px;border-bottom:1px solid var(--line);background:rgba(16,26,46,.6);white-space:nowrap}
-  #dds-corp .result td{padding:7px 12px;border-bottom:1px solid rgba(140,170,220,.07);color:var(--txt);white-space:nowrap}
-  #dds-corp .result tr:last-child td{border-bottom:none}
-  #dds-corp .result td.flag{color:var(--amber)}
-  #dds-corp .c-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:0 16px 14px;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
-  #dds-corp .c-foot b{color:var(--green);font-weight:500}
- 
-  /* ---------- Strip ---------- */
-  #dds-corp .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);padding-block:30px}
-  #dds-corp .strip .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:center}
-  #dds-corp .stat{text-align:center;display:grid;gap:2px;justify-items:center}
-  #dds-corp .stat .n{font-family:var(--f-display);font-size:28px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
-  #dds-corp .stat .t{font-size:13px;color:var(--muted)}
-  #dds-corp .stat img{height:58px;width:auto}
- 
-  /* ---------- Sectors (signature) ---------- */
-  #dds-corp .sectors{background:radial-gradient(800px 420px at 100% 0%,rgba(139,92,246,.12),transparent 60%),var(--bg)}
-  #dds-corp .s-layout{display:grid;grid-template-columns:280px 1fr;gap:22px;align-items:start}
-  #dds-corp .s-layout>*{min-width:0}
-  #dds-corp .s-list{display:grid;gap:8px}
-  #dds-corp .s-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 16px;color:var(--txt);font-family:var(--f-display);font-size:15.5px;font-weight:600;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
-  #dds-corp .s-btn:hover{border-color:rgba(34,211,238,.4);transform:translateX(3px)}
-  #dds-corp .s-btn[aria-selected="true"]{border-color:rgba(34,211,238,.6);background:linear-gradient(135deg,rgba(34,211,238,.12),rgba(139,92,246,.1))}
-  #dds-corp .s-btn small{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;padding:3px 8px;border-radius:999px;white-space:nowrap}
-  #dds-corp .ready{color:var(--green);border:1px solid rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
-  #dds-corp .req{color:var(--muted);border:1px solid var(--line)}
-  #dds-corp .s-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
-  #dds-corp .s-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
-  #dds-corp .s-top h3{font-size:24px}
-  #dds-corp .s-desc{color:var(--muted);font-size:15px;max-width:68ch;margin-bottom:22px}
-  #dds-corp .s-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  #dds-corp .s-cols>*{min-width:0}
-  #dds-corp .s-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+  #dds-corp .hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:14px 36px;margin-top:54px;padding-top:28px;border-top:1px solid var(--line2);width:fit-content;max-width:100%}
+  #dds-corp .hs .n{font-family:var(--f-display);font-size:30px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+  #dds-corp .hs .t{font-size:12.5px;color:var(--muted);margin-top:6px;letter-spacing:.02em}
+
+  /* ---------- CLIENTS MARQUEE ---------- */
+  #dds-corp .clients{padding-block:44px;border-block:1px solid var(--line);background:var(--bg2)}
+  #dds-corp .clients .lab{text-align:center;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+  #dds-corp .marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  #dds-corp .track-m{display:flex;gap:18px;width:max-content;animation:dds-marq 32s linear infinite}
+  #dds-corp .marquee:hover .track-m{animation-play-state:paused}
+  @keyframes dds-marq{to{transform:translateX(-50%)}}
+  #dds-corp .client{display:flex;flex-direction:column;justify-content:center;min-width:210px;height:84px;padding:0 26px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,0));transition:border-color .3s}
+  #dds-corp .client:hover{border-color:rgba(217,178,95,.5)}
+  #dds-corp .client .cn{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.01em;color:#e8edf7;white-space:nowrap}
+  #dds-corp .client .cs{font-size:11.5px;color:var(--muted);white-space:nowrap}
+
+  /* ---------- BUILD VS HIRE ---------- */
+  #dds-corp .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+  #dds-corp .vs-grid>*{min-width:0}
+  #dds-corp .vs{border-radius:var(--r);padding:32px;border:1px solid var(--line);background:var(--panel)}
+  #dds-corp .vs.in{border-color:rgba(34,211,238,.45);background:linear-gradient(165deg,rgba(34,211,238,.1),rgba(139,92,246,.08) 45%,var(--panel) 80%);box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 0 1px rgba(34,211,238,.1) inset;position:relative;overflow:hidden}
+  #dds-corp .vs.in::before{content:"";position:absolute;top:-1px;left:-30%;width:30%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);animation:dds-edge 4s linear infinite}
+  @keyframes dds-edge{to{left:130%}}
+  #dds-corp .vs .vs-tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  #dds-corp .vs.in .vs-tag{color:var(--cyan)}
+  #dds-corp .vs h3{font-size:24px;margin:10px 0 22px}
+  #dds-corp .vs ul{list-style:none;display:grid;gap:16px}
+  #dds-corp .vs li{display:grid;grid-template-columns:26px 1fr;gap:12px;font-size:15px;color:var(--muted)}
+  #dds-corp .vs li strong{display:block;color:var(--txt);font-weight:600;font-size:15.5px;margin-bottom:2px}
+  #dds-corp .vs li i{font-style:normal;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+  #dds-corp .vs.out li i{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.35)}
+  #dds-corp .vs.in li i{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.4)}
+  #dds-corp .vs-quote{margin-top:22px;text-align:center;font-family:var(--f-display);font-size:clamp(19px,2.2vw,24px);max-width:820px;margin-inline:auto;color:#dfe6f3}
+  #dds-corp .vs-quote span{color:var(--gold)}
+
+  /* ---------- PILLARS ---------- */
+  #dds-corp .pillars{background:radial-gradient(900px 480px at 50% 0%,rgba(139,92,246,.14),transparent 60%),var(--bg2)}
+  #dds-corp .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  #dds-corp .p-grid>*{min-width:0}
+  #dds-corp .pl{position:relative;border-radius:var(--r);padding:30px;background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;display:flex;flex-direction:column;gap:14px}
+  #dds-corp .pl::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.07) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s ease}
+  #dds-corp .pl:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.45);box-shadow:0 26px 60px rgba(0,0,0,.5)}
+  #dds-corp .pl:hover::after{transform:translateX(120%)}
+  #dds-corp .pl .num{font-family:var(--f-mono);font-size:12px;color:var(--gold);letter-spacing:.14em}
+  #dds-corp .pl .ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));border:1px solid var(--line2)}
+  #dds-corp .pl .ico svg{width:26px;height:26px;stroke:var(--cyan);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #dds-corp .pl h3{font-size:23px}
+  #dds-corp .pl p{font-size:15px;color:var(--muted)}
+  #dds-corp .pl ul{list-style:none;display:grid;gap:8px;margin-top:4px}
+  #dds-corp .pl li{font-size:14.5px;padding-left:20px;position:relative}
+  #dds-corp .pl li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:2px;background:var(--grad);transform:rotate(45deg)}
+
+  /* ---------- INNOVATION FLOW ---------- */
+  #dds-corp .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative;margin-top:8px}
+  #dds-corp .flow::before{content:"";position:absolute;left:8%;right:8%;top:31px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--gold));opacity:.55}
+  #dds-corp .flow::after{content:"";position:absolute;top:27px;left:8%;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 18px 6px rgba(34,211,238,.7);animation:dds-run 5s ease-in-out infinite}
+  @keyframes dds-run{0%{left:8%}100%{left:calc(92% - 10px)}}
+  #dds-corp .fs{position:relative;text-align:center;display:grid;gap:10px;justify-items:center}
+  #dds-corp .fs .dot{width:64px;height:64px;border-radius:50%;background:var(--bg);border:2px solid var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:14px;font-weight:700;color:var(--cyan);position:relative;z-index:1}
+  #dds-corp .fs:nth-child(5) .dot{border-color:var(--gold);color:var(--gold);box-shadow:0 0 30px rgba(217,178,95,.3)}
+  #dds-corp .fs h3{font-size:17px}
+  #dds-corp .fs p{font-size:13.5px;color:var(--muted);max-width:24ch}
+
+  /* ---------- SECTORS ---------- */
+  #dds-corp .sectors{background:var(--bg2)}
+  #dds-corp .s-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+  #dds-corp .s-btn{font-family:var(--f-display);font-weight:600;font-size:15px;border:1px solid var(--line2);background:var(--panel);color:var(--muted);border-radius:999px;padding:10px 18px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+  #dds-corp .s-btn:hover{color:var(--txt);border-color:rgba(34,211,238,.4)}
+  #dds-corp .s-btn[aria-selected="true"]{background:var(--grad);color:var(--ink);border-color:transparent}
+  #dds-corp .s-btn .rd{width:7px;height:7px;border-radius:50%;background:var(--green)}
+  #dds-corp .s-btn[aria-selected="true"] .rd{background:var(--ink)}
+  #dds-corp .s-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px}
+  #dds-corp .s-panel>*{min-width:0}
+  #dds-corp .s-panel h3{font-size:26px;margin-bottom:8px}
+  #dds-corp .s-desc{color:var(--muted);font-size:15px;margin-bottom:20px}
+  #dds-corp .lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
   #dds-corp .schema{display:grid;gap:8px}
-  #dds-corp .tbl{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:var(--f-mono);font-size:12.5px;line-height:1.55;overflow-wrap:anywhere}
+  #dds-corp .tbl{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-family:var(--f-mono);font-size:12.5px;line-height:1.55;overflow-wrap:anywhere}
   #dds-corp .tbl b{color:#c4b5fd;font-weight:500}
   #dds-corp .tbl span{color:var(--muted)}
-  #dds-corp .qs{list-style:none;display:grid;gap:8px}
-  #dds-corp .qs li{font-size:14.5px;color:var(--txt);padding-left:22px;position:relative}
+  #dds-corp .qs{list-style:none;display:grid;gap:10px;margin-bottom:22px}
+  #dds-corp .qs li{font-size:15px;padding-left:24px;position:relative}
   #dds-corp .qs li::before{content:"?";position:absolute;left:0;top:0;font-family:var(--f-mono);color:var(--violet);font-weight:700}
-  #dds-corp .caps{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  #dds-corp .cap{border:1px dashed rgba(245,166,35,.4);background:rgba(245,166,35,.05);border-radius:12px;padding:14px 16px}
-  #dds-corp .cap .s-label{color:var(--amber);margin-bottom:6px}
-  #dds-corp .cap p{font-size:14px;color:var(--txt)}
-  #dds-corp .s-note{margin-top:18px;font-size:13.5px;color:var(--muted)}
-  #dds-corp .s-note b{color:var(--txt);font-weight:600}
- 
-  /* ---------- Four-layer ---------- */
-  #dds-corp .layers{background:var(--bg2)}
-  #dds-corp .l-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  #dds-corp .layer{padding:28px 24px;background:var(--panel);position:relative;border-right:1px solid var(--line)}
-  #dds-corp .layer:last-child{border-right:none}
-  #dds-corp .layer .lvl{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-  #dds-corp .layer h3{font-size:20px;margin:10px 0 8px}
-  #dds-corp .layer p{font-size:14px;color:var(--muted)}
-  #dds-corp .layer .bar{height:3px;border-radius:3px;background:var(--grad);margin-top:18px}
-  #dds-corp .layer:nth-child(1) .bar{width:25%}
-  #dds-corp .layer:nth-child(2) .bar{width:50%}
-  #dds-corp .layer:nth-child(3) .bar{width:75%}
-  #dds-corp .layer:nth-child(4) .bar{width:100%}
-  #dds-corp .layer:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:30px;width:22px;height:22px;border-radius:50%;background:var(--bg2);border:1px solid var(--line);color:var(--cyan);font-size:12px;display:flex;align-items:center;justify-content:center;z-index:2}
- 
-  /* ---------- Packages ---------- */
-  #dds-corp .pk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  #dds-corp .pk{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
-  #dds-corp .pk:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.45);box-shadow:0 18px 44px rgba(0,0,0,.4)}
-  #dds-corp .pk.feat{border-color:rgba(139,92,246,.55);background:linear-gradient(170deg,rgba(139,92,246,.12),var(--panel) 50%)}
-  #dds-corp .pk .flag{position:absolute;top:-11px;left:22px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:var(--ink);padding:3px 10px;border-radius:999px;font-weight:700}
-  #dds-corp .pk .dur{font-family:var(--f-mono);font-size:12px;color:var(--cyan);letter-spacing:.06em}
+  #dds-corp .cap{border:1px dashed rgba(217,178,95,.45);background:rgba(217,178,95,.05);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+  #dds-corp .cap .lbl{color:var(--gold);margin-bottom:4px}
+  #dds-corp .cap p{font-size:14.5px}
+
+  /* ---------- PACKAGES ---------- */
+  #dds-corp .pk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  #dds-corp .pk-grid>*{min-width:0}
+  #dds-corp .pk{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;transition:transform .3s,border-color .3s,box-shadow .3s}
+  #dds-corp .pk:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.45);box-shadow:0 22px 50px rgba(0,0,0,.45)}
+  #dds-corp .pk.feat{border-color:rgba(217,178,95,.55);background:linear-gradient(170deg,rgba(217,178,95,.1),var(--panel) 45%);box-shadow:0 0 0 1px rgba(217,178,95,.15) inset}
+  #dds-corp .pk .flag{position:absolute;top:-12px;left:24px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--gold-grad);color:#1a1204;padding:4px 11px;border-radius:999px;font-weight:700}
+  #dds-corp .pk .dur{font-family:var(--f-mono);font-size:12px;color:var(--cyan);letter-spacing:.1em}
   #dds-corp .pk h3{font-size:20px}
   #dds-corp .pk .for{font-size:13.5px;color:var(--muted)}
-  #dds-corp .pk ul{list-style:none;display:grid;gap:7px;flex:1}
-  #dds-corp .pk li{font-size:14px;color:var(--txt);padding-left:18px;position:relative}
+  #dds-corp .pk ul{list-style:none;display:grid;gap:8px;flex:1}
+  #dds-corp .pk li{font-size:14px;padding-left:18px;position:relative}
   #dds-corp .pk li::before{content:"▸";position:absolute;left:0;color:var(--violet)}
   #dds-corp .pk .out{border-top:1px solid var(--line);padding-top:12px;font-size:13.5px;color:var(--muted)}
-  #dds-corp .pk .out b{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:500;margin-bottom:3px}
-  #dds-corp .callout{margin-top:24px;background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(139,92,246,.08));border:1px solid rgba(34,211,238,.25);border-radius:var(--radius);padding:20px 24px;font-size:15px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
-  #dds-corp .callout p{max-width:72ch}
-  #dds-corp .callout b{color:var(--cyan)}
- 
-  /* ---------- Tools ---------- */
-  #dds-corp .tools{background:var(--bg2)}
-  #dds-corp .t-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  #dds-corp .t-group{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-  #dds-corp .t-group h3{font-size:16px;margin-bottom:4px}
-  #dds-corp .t-group p{font-size:13.5px;color:var(--muted);margin-bottom:14px}
-  #dds-corp .chips{display:flex;flex-wrap:wrap;gap:8px}
-  #dds-corp .chip{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--txt);background:var(--panel2);transition:border-color .2s,color .2s}
-  #dds-corp .chip:hover{border-color:var(--violet);color:#c4b5fd}
- 
-  /* ---------- Process ---------- */
-  #dds-corp .track{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
-  #dds-corp .track::before{content:"";position:absolute;left:24px;right:24px;top:23px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--amber))}
-  #dds-corp .stp{position:relative;display:grid;gap:10px;align-content:start}
-  #dds-corp .stp .dot{width:48px;height:48px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:13px;font-weight:700;color:var(--cyan);position:relative;z-index:1}
-  #dds-corp .stp:nth-child(4) .dot{border-color:var(--violet);color:#c4b5fd}
-  #dds-corp .stp:nth-child(5) .dot{border-color:var(--amber);color:var(--amber)}
-  #dds-corp .stp h3{font-size:17px}
-  #dds-corp .stp p{font-size:14px;color:var(--muted)}
- 
-  /* ---------- Capstones ---------- */
-  #dds-corp .capstones{background:radial-gradient(700px 380px at 50% 0%,rgba(139,92,246,.16),transparent 65%),var(--bg2)}
-  #dds-corp .cp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  #dds-corp .cp{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,border-color .25s}
-  #dds-corp .cp:hover{transform:translateY(-4px);border-color:rgba(245,166,35,.45)}
-  #dds-corp .cp .sec{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
-  #dds-corp .cp h3{font-size:18px}
-  #dds-corp .cp p{font-size:14px;color:var(--muted);flex:1}
-  #dds-corp .cp .stack{font-family:var(--f-mono);font-size:11.5px;color:var(--cyan);border-top:1px solid var(--line);padding-top:10px}
-  #dds-corp .disclaim{margin-top:22px;font-size:12.5px;color:var(--muted);text-align:center}
- 
-  /* ---------- Outcomes + certificate ---------- */
-  #dds-corp .cert .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-  #dds-corp .cert .wrap>*{min-width:0}
-  #dds-corp .outs{list-style:none;display:grid;gap:12px;margin-top:22px}
-  #dds-corp .outs li{display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:15px;align-items:start}
-  #dds-corp .outs li i{font-style:normal;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-family:var(--f-mono);font-size:12px}
-  #dds-corp .outs li span{color:var(--muted)}
-  #dds-corp .outs li strong{color:var(--txt);font-weight:600}
-  #dds-corp .cert-img{border-radius:var(--radius);border:1px solid var(--line);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
-  #dds-corp .cpd-row{display:flex;align-items:center;gap:16px;margin-top:20px}
-  #dds-corp .cpd-row img{height:68px;width:auto}
-  #dds-corp .cpd-row p{font-size:13.5px;color:var(--muted)}
- 
-  /* ---------- Trainer ---------- */
-  #dds-corp .host{background:var(--bg2)}
-  #dds-corp .host .wrap{display:grid;grid-template-columns:300px 1fr;gap:46px;align-items:center}
+  #dds-corp .pk .out b{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:3px}
+
+  /* ---------- 3-DAY ---------- */
+  #dds-corp .roadmap{background:var(--bg2)}
+  #dds-corp .rm-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+  #dds-corp .chip{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line2);border-radius:999px;padding:6px 13px;color:var(--muted);background:var(--panel)}
+  #dds-corp .chip.c{color:var(--cyan);border-color:rgba(34,211,238,.4)}
+  #dds-corp .chip.g{color:var(--gold);border-color:rgba(217,178,95,.45)}
+  #dds-corp .days{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  #dds-corp .days>*{min-width:0}
+  #dds-corp .day{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+  #dds-corp .day .dn{font-family:var(--f-display);font-size:64px;font-weight:700;line-height:.9;position:absolute;right:18px;top:12px;color:rgba(150,180,230,.08)}
+  #dds-corp .day .dl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+  #dds-corp .day h3{font-size:22px}
+  #dds-corp .day .goal{font-size:14px;color:var(--muted)}
+  #dds-corp .day ul{list-style:none;display:grid;gap:8px}
+  #dds-corp .day li{font-size:14.5px;padding-left:18px;position:relative}
+  #dds-corp .day li::before{content:"▸";position:absolute;left:0;color:var(--violet)}
+  #dds-corp .day.d3{border-color:rgba(217,178,95,.45)}
+  #dds-corp .day.d3 .dl{color:var(--gold)}
+  #dds-corp .capbox{margin-top:auto;border-radius:12px;padding:14px 16px;background:linear-gradient(135deg,rgba(217,178,95,.14),rgba(217,178,95,.04));border:1px solid rgba(217,178,95,.4)}
+  #dds-corp .capbox .lbl{color:var(--gold);margin-bottom:6px}
+  #dds-corp .capbox p{font-size:14px}
+
+  /* ---------- GALLERY ---------- */
+  #dds-corp .gal{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:18px}
+  #dds-corp .gal>*{min-width:0}
+  #dds-corp .ph{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+  #dds-corp .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  #dds-corp .ph:hover img{transform:scale(1.05)}
+  #dds-corp .ph.big{grid-row:span 2;min-height:420px}
+  #dds-corp .ph.sm{aspect-ratio:4/3}
+  #dds-corp .ph .cap-t{position:absolute;left:0;right:0;bottom:0;padding:22px 20px 18px;background:linear-gradient(0deg,rgba(5,8,15,.92),rgba(5,8,15,0));font-size:14px}
+  #dds-corp .ph .cap-t b{display:block;font-family:var(--f-display);font-size:18px}
+  #dds-corp .ph .cap-t span{color:var(--muted)}
+  #dds-corp .numbers{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:stretch}
+  #dds-corp .nb{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center}
+  #dds-corp .nb .n{font-family:var(--f-display);font-size:32px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  #dds-corp .nb .t{font-size:13px;color:var(--muted);margin-top:6px}
+
+  /* ---------- TESTIMONIALS ---------- */
+  #dds-corp .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  #dds-corp .t-grid>*{min-width:0}
+  #dds-corp .tc{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:18px;position:relative}
+  #dds-corp .tc::before{content:"\201C";position:absolute;top:6px;right:22px;font-family:Georgia,serif;font-size:90px;line-height:1;color:rgba(217,178,95,.22)}
+  #dds-corp .tc .stars{color:var(--gold);letter-spacing:3px;font-size:14px}
+  #dds-corp .tc blockquote{font-size:16px;line-height:1.65;color:#dbe3f1;flex:1}
+  #dds-corp .tc .who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+  #dds-corp .tc .av{width:42px;height:42px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-weight:700;color:var(--ink);flex:0 0 auto}
+  #dds-corp .tc .who b{display:block;font-size:14.5px}
+  #dds-corp .tc .who span{font-size:13px;color:var(--muted)}
+  #dds-corp .tc.slot{border-style:dashed;border-color:rgba(217,178,95,.4)}
+  #dds-corp .tc.slot blockquote{color:var(--muted);font-style:italic}
+
+  /* ---------- CPD ---------- */
+  #dds-corp .cpd{background:radial-gradient(800px 420px at 80% 50%,rgba(217,178,95,.1),transparent 60%),var(--bg2)}
+  #dds-corp .cpd .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  #dds-corp .cpd .wrap>*{min-width:0}
+  #dds-corp .cpd-badge{display:flex;align-items:center;gap:18px;margin:26px 0}
+  #dds-corp .cpd-badge .lg{background:#fff;border-radius:14px;padding:12px;width:118px;flex:0 0 auto;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  #dds-corp .cpd-badge p{font-size:14.5px;color:var(--muted)}
+  #dds-corp .cpd-badge p b{color:var(--txt)}
+  #dds-corp .ticks{list-style:none;display:grid;gap:10px}
+  #dds-corp .ticks li{font-size:15px;padding-left:28px;position:relative}
+  #dds-corp .ticks li::before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:rgba(217,178,95,.15);border:1px solid rgba(217,178,95,.5);color:var(--gold);font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700}
+  #dds-corp .cert-frame{position:relative;border-radius:16px;padding:12px;background:linear-gradient(135deg,rgba(217,178,95,.6),rgba(217,178,95,.1) 40%,rgba(217,178,95,.5));box-shadow:0 40px 90px rgba(0,0,0,.55);transform:perspective(1400px) rotateY(-6deg) rotateX(2deg);transition:transform .6s ease}
+  #dds-corp .cert-frame:hover{transform:perspective(1400px) rotateY(0) rotateX(0)}
+  #dds-corp .cert-frame::after{content:"";position:absolute;inset:12px;border-radius:8px;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);background-size:250% 100%;animation:dds-glint 5s ease-in-out infinite;pointer-events:none;mix-blend-mode:soft-light}
+  @keyframes dds-glint{0%,40%{background-position:120% 0}100%{background-position:-120% 0}}
+  #dds-corp .cert-frame img{border-radius:8px;width:100%;background:#fbfaf6}
+  #dds-corp .cert-ph{border-radius:8px;aspect-ratio:1.414/1;background:#fbfaf6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center;color:#1d2640}
+  #dds-corp .cert-ph img{width:120px;background:none}
+  #dds-corp .cert-ph b{font-family:Georgia,serif;font-size:clamp(18px,2.4vw,26px);letter-spacing:.12em;text-transform:uppercase}
+  #dds-corp .cert-ph span{font-size:13px;color:#6a6f80}
+
+  /* ---------- TRAINER ---------- */
+  #dds-corp .host .wrap{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center}
   #dds-corp .host .wrap>*{min-width:0}
-  #dds-corp .host-photo{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 56px rgba(0,0,0,.45)}
-  #dds-corp .host-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
- 
+  #dds-corp .host-photo{border-radius:var(--r);overflow:hidden;border:1px solid var(--line2);box-shadow:0 30px 70px rgba(0,0,0,.5);position:relative}
+  #dds-corp .host-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,8,15,.5),transparent 40%)}
+  #dds-corp .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+
   /* ---------- FAQ ---------- */
-  #dds-corp .faq-wrap{max-width:860px}
+  #dds-corp .faq-wrap{max-width:880px}
   #dds-corp .faq-item{border:1px solid var(--line);border-radius:14px;background:var(--panel);margin-bottom:12px;overflow:hidden}
-  #dds-corp .faq-q{width:100%;text-align:left;background:none;border:none;color:var(--txt);font-family:var(--f-display);font-weight:600;font-size:16px;padding:18px 52px 18px 22px;cursor:pointer;position:relative}
-  #dds-corp .faq-q::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--cyan);transition:transform .25s}
+  #dds-corp .faq-q{width:100%;text-align:left;background:none;border:none;color:var(--txt);font-family:var(--f-display);font-weight:600;font-size:16.5px;padding:20px 56px 20px 22px;cursor:pointer;position:relative}
+  #dds-corp .faq-q::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--cyan);transition:transform .25s}
   #dds-corp .faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
   #dds-corp .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
-  #dds-corp .faq-a p{padding:0 22px 20px;font-size:14.5px;color:var(--muted)}
- 
-  /* ---------- Final ---------- */
-  #dds-corp .final{background:
-    radial-gradient(800px 420px at 50% 100%,rgba(34,211,238,.16),transparent 65%),
-    radial-gradient(600px 360px at 80% 0%,rgba(139,92,246,.18),transparent 60%),var(--bg);padding-block:96px}
-  #dds-corp .final-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
-  #dds-corp .final-grid>*{min-width:0}
-  #dds-corp .final h2{font-size:clamp(30px,4.4vw,46px)}
-  #dds-corp .brief{background:var(--panel);border:1px solid rgba(34,211,238,.25);border-radius:var(--radius);padding:24px}
-  #dds-corp .brief .s-label{margin-bottom:12px}
-  #dds-corp .brief ol{list-style:none;display:grid;gap:10px;counter-reset:b}
-  #dds-corp .brief li{counter-increment:b;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:14.5px}
-  #dds-corp .brief li::before{content:counter(b);font-family:var(--f-mono);font-size:12px;color:var(--cyan);border:1px solid rgba(34,211,238,.4);border-radius:7px;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
-  #dds-corp .org-line{margin-top:60px;border-top:1px solid var(--line);padding-top:22px;font-size:12.5px;color:var(--muted);font-family:var(--f-mono);letter-spacing:.05em;text-align:center}
- 
-  /* ---------- Floating mobile CTA ---------- */
-  #dds-corp .float-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:0 max(14px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));pointer-events:none}
-  #dds-corp .float-cta a{pointer-events:auto;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--grad);color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:15.5px;padding:15px;border-radius:14px;box-shadow:0 12px 36px rgba(34,211,238,.4)}
- 
-  /* ---------- Responsive ---------- */
-  @media(max-width:1020px){
-    #dds-corp .pk-grid,#dds-corp .t-grid{grid-template-columns:repeat(2,1fr)}
-    #dds-corp .l-row{grid-template-columns:repeat(2,1fr)}
-    #dds-corp .layer:nth-child(2){border-right:none}
-    #dds-corp .layer:nth-child(-n+2){border-bottom:1px solid var(--line)}
-    #dds-corp .layer::after{display:none}
-    #dds-corp .cp-grid{grid-template-columns:repeat(2,1fr)}
-    #dds-corp .strip .wrap{grid-template-columns:repeat(3,1fr)}
+  #dds-corp .faq-a p{padding:0 22px 20px;font-size:15px;color:var(--muted)}
+
+  /* ---------- FINAL ---------- */
+  #dds-corp .final{text-align:center;overflow:hidden;isolation:isolate;background:radial-gradient(800px 420px at 50% 110%,rgba(34,211,238,.22),transparent 65%),radial-gradient(600px 380px at 85% 0%,rgba(139,92,246,.22),transparent 60%),radial-gradient(500px 300px at 10% 10%,rgba(217,178,95,.12),transparent 60%),var(--bg);padding-block:120px}
+  #dds-corp .final h2{font-size:clamp(32px,5vw,56px);max-width:860px;margin:0 auto 18px}
+  #dds-corp .final .lead{margin:0 auto 34px}
+  #dds-corp .final .cta-row{justify-content:center}
+  #dds-corp .contact-line{margin-top:26px;font-size:14px;color:var(--muted)}
+  #dds-corp .contact-line b{color:var(--txt);user-select:all}
+  #dds-corp .foot{border-top:1px solid var(--line);padding-block:28px;text-align:center;font-size:12.5px;color:var(--muted);font-family:var(--f-mono);letter-spacing:.05em;background:var(--bg)}
+  #dds-corp .foot img{height:28px;width:auto;margin:0 auto 12px}
+
+  /* floating mobile CTA */
+  #dds-corp .float-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:0 max(14px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));pointer-events:none}
+  #dds-corp .float-cta a{pointer-events:auto;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--grad);color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:15.5px;padding:15px;border-radius:14px;box-shadow:0 12px 36px rgba(34,211,238,.45)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1080px){
+    #dds-corp .pk-grid{grid-template-columns:repeat(2,1fr)}
+    #dds-corp .nav-links{display:none}
   }
-  @media(max-width:880px){
-    #dds-corp .hero-grid,#dds-corp .s-layout,#dds-corp .cert .wrap,#dds-corp .final-grid{grid-template-columns:1fr}
-    #dds-corp .s-list{grid-template-columns:repeat(2,1fr)}
-    #dds-corp .track{grid-template-columns:1fr;gap:18px}
-    #dds-corp .track::before{left:23px;right:auto;top:24px;bottom:24px;width:2px;height:auto;background:linear-gradient(180deg,var(--cyan),var(--violet),var(--amber))}
-    #dds-corp .stp{grid-template-columns:48px 1fr;column-gap:16px}
-    #dds-corp .stp .dot{grid-row:span 2}
+  @media(max-width:900px){
+    #dds-corp section{padding-block:76px}
+    #dds-corp .vs-grid,#dds-corp .p-grid,#dds-corp .s-panel,#dds-corp .days,#dds-corp .t-grid,#dds-corp .cpd .wrap{grid-template-columns:1fr}
+    #dds-corp .gal{grid-template-columns:1fr}
+    #dds-corp .ph.big{grid-row:auto;min-height:0;aspect-ratio:4/3}
+    #dds-corp .flow{grid-template-columns:1fr;gap:18px}
+    #dds-corp .flow::before{left:31px;right:auto;top:32px;bottom:32px;width:2px;height:auto;background:linear-gradient(180deg,var(--cyan),var(--violet),var(--gold))}
+    #dds-corp .flow::after{display:none}
+    #dds-corp .fs{grid-template-columns:64px 1fr;text-align:left;justify-items:start;column-gap:18px;align-items:center}
+    #dds-corp .fs .dot{grid-row:span 2}
+    #dds-corp .fs p{max-width:none}
+    #dds-corp .cert-frame{transform:none}
     #dds-corp .host .wrap{grid-template-columns:1fr;justify-items:center;text-align:center}
-    #dds-corp .host-photo{max-width:260px}
-    #dds-corp .host-meta{justify-content:center}
+    #dds-corp .host-photo{max-width:300px}
+    #dds-corp .tags{justify-content:center}
+    #dds-corp .hero-stats{grid-template-columns:repeat(2,auto)}
   }
-  @media(max-width:640px){
+  @media(max-width:600px){
     #dds-corp section{padding-block:60px}
-    #dds-corp .pk-grid,#dds-corp .t-grid,#dds-corp .cp-grid,#dds-corp .l-row,#dds-corp .s-cols,#dds-corp .caps{grid-template-columns:1fr}
-    #dds-corp .layer{border-right:none;border-bottom:1px solid var(--line)}
-    #dds-corp .layer:last-child{border-bottom:none}
-    #dds-corp .strip .wrap{grid-template-columns:repeat(2,1fr)}
-    #dds-corp .s-list{grid-template-columns:1fr}
-    #dds-corp .s-panel{padding:20px}
+    #dds-corp .pk-grid{grid-template-columns:1fr}
+    #dds-corp .nav .btn{display:none}
+    #dds-corp .hero .wrap{padding-block:64px 56px}
+    #dds-corp .hero::before{background:linear-gradient(0deg,rgba(5,8,15,1) 0%,rgba(5,8,15,.86) 50%,rgba(5,8,15,.7) 100%)}
+    #dds-corp .cta-row .btn{width:100%;justify-content:center}
+    #dds-corp .vs,#dds-corp .s-panel,#dds-corp .pl{padding:22px}
+    #dds-corp .client{min-width:170px;height:72px;padding:0 18px}
+    #dds-corp .client .cn{font-size:20px}
     #dds-corp .float-cta{display:block}
-    #dds-corp .final{padding-block:64px 110px}
+    #dds-corp .final{padding-block:72px 120px}
+    #dds-corp .numbers .n{font-size:26px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #dds-corp *{animation:none!important;transition:none!important}
+    #dds-corp .rv.pre{opacity:1;transform:none}
   }
 </style>
- 
+
 <div id="dds-corp">
- 
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="wrap">
+      <img class="logo" src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/DDS%20HIGH%20RES%20Logo%20%20copywhite.png" alt="Decoding Data Science">
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#dds-why">Why in-house</a>
+        <a href="#dds-services">Services</a>
+        <a href="#dds-sectors">Sectors</a>
+        <a href="#dds-packages">Programmes</a>
+        <a href="#dds-cpd">CPD</a>
+      </nav>
+      <a class="btn btn-p" href="#dds-contact">Request a proposal</a>
+    </div>
+  </header>
+
   <!-- ===== HERO ===== -->
   <section class="hero">
+    <div class="hero-bg"><img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%209.23.48%20AM%20(1).jpeg" alt="Mohammad Arshad delivering an AI session to a full room in Dubai"></div>
+    <div class="beams" aria-hidden="true"><span class="beam"></span><span class="beam"></span><span class="beam"></span></div>
     <div class="wrap">
-      <div class="topbar">
-        <img class="logo" src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/DDS%20HIGH%20RES%20Logo%20%20copywhite.png" alt="Decoding Data Science">
-        <span class="tb-tag">Corporate Training · UAE &amp; Global</span>
-      </div>
- 
-      <div class="hero-grid">
-        <div>
-          <div class="badges">
-            <span class="badge hot">CPD Approved Provider</span>
-            <span class="badge">On-site or Live Online</span>
-            <span class="badge live">Sector sandboxes ready</span>
-          </div>
-          <h1>Corporate AI &amp; Data training that ends in a <span class="gx">working solution</span></h1>
-          <p class="sub">Hands-on programmes built on your sector's data, your team's tools and your real business problems. Every engagement closes with a team capstone your leadership can see, test and take forward.</p>
-          <div class="cta-row">
-            <a class="btn btn-p" href="#dds-plan">Plan your team's training →</a>
-            <a class="btn btn-s" href="#dds-packages">View packages</a>
-          </div>
-          <p class="note">Customised for analysts, engineers, managers and cross-functional teams.</p>
+      <div class="hero-inner">
+        <span class="pill"><b>CPD UK</b>Certified corporate AI training · UAE &amp; GCC</span>
+        <h1>Build AI capability <span class="gx">inside</span> your organisation. <span class="gold-t">Don't rent it.</span></h1>
+        <p class="sub">We train your people on your data and your problems, then guide them to build and implement real innovation projects. Your teams already know your business. We give them the AI skills to transform it.</p>
+        <div class="cta-row">
+          <a class="btn btn-p" href="#dds-contact">Request a proposal →</a>
+          <a class="btn btn-s" href="#dds-services">Explore our services</a>
         </div>
- 
-        <div class="console" aria-label="Example lab query from a sector sandbox">
-          <div class="c-bar"><i></i><i></i><i></i><span id="ddsCPath">workspace / sandbox / security_ops / lab_02.sql</span></div>
-          <div class="c-tabs" role="tablist" aria-label="Example sector query">
-            <button class="c-tab" role="tab" aria-selected="true" data-c="0">Security</button>
-            <button class="c-tab" role="tab" aria-selected="false" data-c="1">HR</button>
-            <button class="c-tab" role="tab" aria-selected="false" data-c="2">Telecom</button>
-            <button class="c-tab" role="tab" aria-selected="false" data-c="3">Energy</button>
-          </div>
-          <pre class="code" id="ddsCode"></pre>
-          <div class="result"><table id="ddsRes"></table></div>
-          <div class="c-foot"><span id="ddsCMeta">3 rows · 0.84s</span><span><b>●</b> AI assistant: <span id="ddsCHint">"Explain why these accounts are flagged"</span></span></div>
+        <div class="hero-stats">
+          <div class="hs"><div class="n" data-count="194" data-suf="K+">194K+</div><div class="t">AI community members</div></div>
+          <div class="hs"><div class="n" data-count="21" data-suf=" yrs">21 yrs</div><div class="t">Enterprise industry experience</div></div>
+          <div class="hs"><div class="n" data-count="50" data-suf="+">50+</div><div class="t">Countries reached</div></div>
+          <div class="hs"><div class="n">CPD</div><div class="t">UK certified programmes</div></div>
         </div>
       </div>
     </div>
   </section>
- 
-  <!-- ===== CREDIBILITY ===== -->
-  <div class="strip">
-    <div class="wrap">
-      <div class="stat"><div class="n">194K+</div><div class="t">Community members</div></div>
-      <div class="stat"><div class="n">50+</div><div class="t">Countries reached</div></div>
-      <div class="stat"><div class="n">21 yrs</div><div class="t">Industry experience leading delivery</div></div>
-      <div class="stat"><div class="n">8</div><div class="t">Sector datasets and scenarios</div></div>
-      <div class="stat"><img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/cpdmember-logo-1-300x275.webp" alt="CPD Member"><div class="t">CPD Approved Training Provider</div></div>
+
+  <!-- ===== CLIENTS ===== -->
+  <div class="clients">
+    <div class="lab">Trusted by teams at leading UAE organisations</div>
+    <div class="marquee" aria-label="Organisations we have worked with">
+      <div class="track-m">
+        <div class="client"><span class="cn">ADNOC</span><span class="cs">Energy</span></div>
+        <div class="client"><span class="cn">ENEC</span><span class="cs">Nuclear energy</span></div>
+        <div class="client"><span class="cn">e&amp;</span><span class="cs">Etisalat · Telecom</span></div>
+        <div class="client"><span class="cn">du</span><span class="cs">Telecom</span></div>
+        <div class="client"><span class="cn">EGA</span><span class="cs">Emirates Global Aluminium</span></div>
+        <div class="client"><span class="cn">Majid Al Futaim</span><span class="cs">Retail &amp; lifestyle</span></div>
+        <div class="client" aria-hidden="true"><span class="cn">ADNOC</span><span class="cs">Energy</span></div>
+        <div class="client" aria-hidden="true"><span class="cn">ENEC</span><span class="cs">Nuclear energy</span></div>
+        <div class="client" aria-hidden="true"><span class="cn">e&amp;</span><span class="cs">Etisalat · Telecom</span></div>
+        <div class="client" aria-hidden="true"><span class="cn">du</span><span class="cs">Telecom</span></div>
+        <div class="client" aria-hidden="true"><span class="cn">EGA</span><span class="cs">Emirates Global Aluminium</span></div>
+        <div class="client" aria-hidden="true"><span class="cn">Majid Al Futaim</span><span class="cs">Retail &amp; lifestyle</span></div>
+      </div>
     </div>
   </div>
- 
+
+  <!-- ===== BUILD VS HIRE ===== -->
+  <section id="dds-why">
+    <div class="wrap">
+      <div class="head center rv">
+        <span class="kicker">The business case</span>
+        <h2>Train your team, or hire AI engineers <span class="gx">from outside?</span></h2>
+        <p class="lead">External AI hires are scarce, expensive and start from zero on your domain. Your own people already understand your operations, your data and your regulations. Upskilling them is the faster, lower-cost and longer-lasting route.</p>
+      </div>
+      <div class="vs-grid rv">
+        <div class="vs out">
+          <div class="vs-tag">Option A</div>
+          <h3>Hire external AI engineers</h3>
+          <ul>
+            <li><i>✕</i><div><strong>Long, costly recruitment</strong>Specialist AI talent is scarce in the region and commands premium packages.</div></li>
+            <li><i>✕</i><div><strong>No domain knowledge</strong>Months spent learning your processes, systems and terminology before delivering value.</div></li>
+            <li><i>✕</i><div><strong>Capability sits with a few people</strong>A small team becomes a bottleneck for every department's request.</div></li>
+            <li><i>✕</i><div><strong>Knowledge walks out the door</strong>When a hire leaves, the know-how and the solutions often leave too.</div></li>
+          </ul>
+        </div>
+        <div class="vs in">
+          <div class="vs-tag">Option B · Recommended</div>
+          <h3>Upskill your own team with DDS</h3>
+          <ul>
+            <li><i>✓</i><div><strong>A fraction of the cost</strong>One programme upskills a whole team for less than the cost of a single specialist hire.</div></li>
+            <li><i>✓</i><div><strong>Domain experts who now use AI</strong>Your people apply AI to problems they already understand deeply, from day one.</div></li>
+            <li><i>✓</i><div><strong>Capability spreads across departments</strong>HR, finance, operations and IT each gain people who can lead AI work.</div></li>
+            <li><i>✓</i><div><strong>Solutions you own</strong>Teams leave with projects, code and know-how that stay inside your organisation.</div></li>
+          </ul>
+        </div>
+      </div>
+      <p class="vs-quote rv">The best AI engineer for your organisation <span>already works for you.</span> They just need the right training.</p>
+    </div>
+  </section>
+
+  <!-- ===== PILLARS ===== -->
+  <section class="pillars" id="dds-services">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="kicker">What we deliver</span>
+        <h2>Training, innovation and delivery, <span class="gx">in one partner</span></h2>
+        <p class="lead">We go beyond the classroom. Every engagement is designed to leave your organisation with skilled people and working solutions.</p>
+      </div>
+      <div class="p-grid rv">
+        <article class="pl">
+          <span class="num">01</span>
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.7 2.2 3 5 3s5-1.3 5-3V9"/><path d="M21 7v6"/></svg></div>
+          <h3>Corporate AI Training</h3>
+          <p>Hands-on programmes from AI literacy for all staff to advanced data and agentic AI for technical teams.</p>
+          <ul><li>Built on your sector's data and tools</li><li>CPD UK certified certificates</li><li>On-site across the UAE or live online</li></ul>
+        </article>
+        <article class="pl">
+          <span class="num">02</span>
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></div>
+          <h3>Innovation Projects</h3>
+          <p>We guide your teams to identify, design and build AI innovation projects they can implement in their own departments.</p>
+          <ul><li>Use-case discovery with business owners</li><li>Team build sprints with mentoring</li><li>Demo day to leadership with an implementation plan</li></ul>
+        </article>
+        <article class="pl">
+          <span class="num">03</span>
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/><path d="M7 9l2 2-2 2"/><path d="M12 13h4"/></svg></div>
+          <h3>Corporate AI Projects</h3>
+          <p>When you need a solution built, our team designs and delivers it alongside your staff, so the skills transfer as we build.</p>
+          <ul><li>AI assistants, RAG and agent workflows</li><li>Data pipelines, dashboards and analytics</li><li>Co-build model with full handover</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INNOVATION FLOW ===== -->
+  <section>
+    <div class="wrap">
+      <div class="head center rv">
+        <span class="kicker gold">From classroom to implementation</span>
+        <h2>How training becomes <span class="gold-t">real innovation</span></h2>
+        <p class="lead">Each programme ends with projects your teams own and can take into production.</p>
+      </div>
+      <div class="flow rv">
+        <div class="fs"><div class="dot">01</div><h3>Train</h3><p>Hands-on skills on your sector's data and tools</p></div>
+        <div class="fs"><div class="dot">02</div><h3>Ideate</h3><p>Teams map high-value AI use cases in their departments</p></div>
+        <div class="fs"><div class="dot">03</div><h3>Build</h3><p>Guided sprints turn the best ideas into working prototypes</p></div>
+        <div class="fs"><div class="dot">04</div><h3>Present</h3><p>Demo day to leadership with business value and next steps</p></div>
+        <div class="fs"><div class="dot">05</div><h3>Implement</h3><p>Selected projects move to pilot with DDS support</p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SECTORS ===== -->
   <section class="sectors" id="dds-sectors">
     <div class="wrap">
       <div class="head rv">
-        <span class="kicker">Sector sandboxes</span>
-        <h2>Your team trains on data that <span class="gx">looks like their work</span></h2>
-        <p class="lead">Each sector comes with a connected, synthetic dataset, realistic business questions and capstone briefs. Pick one, combine nothing you don't need, or bring your own anonymised data.</p>
+        <span class="kicker">Sector-ready sandboxes</span>
+        <h2>Your teams train on data that <span class="gx">looks like their work</span></h2>
+        <p class="lead">Connected, realistic datasets with business questions and capstone briefs for each sector. Or bring your own anonymised data.</p>
       </div>
- 
-      <div class="s-layout rv">
-        <div class="s-list" role="tablist" aria-label="Sectors" id="ddsSList"></div>
+      <div class="rv">
+        <div class="s-tabs" role="tablist" aria-label="Sectors" id="ddsSList"></div>
         <div class="s-panel" role="tabpanel" id="ddsSPanel" aria-live="polite"></div>
       </div>
     </div>
   </section>
- 
-  <!-- ===== FOUR-LAYER SHIFT ===== -->
-  <section class="layers">
-    <div class="wrap">
-      <div class="head rv">
-        <span class="kicker">How we teach AI</span>
-        <h2>The Four-Layer Shift</h2>
-        <p class="lead">Our core teaching framework. Teams move from writing better prompts to building AI systems that run, check and improve themselves. Each programme starts at the layer your team is ready for.</p>
-      </div>
-      <div class="l-row rv">
-        <div class="layer"><div class="lvl">Layer 1</div><h3>Prompt Engineering</h3><p>Clear instructions, examples and output formats that get reliable answers from any AI assistant.</p><div class="bar"></div></div>
-        <div class="layer"><div class="lvl">Layer 2</div><h3>Context Engineering</h3><p>Grounding AI in your documents, tables and policies so answers reflect your organisation, not the internet.</p><div class="bar"></div></div>
-        <div class="layer"><div class="lvl">Layer 3</div><h3>Harness Engineering</h3><p>Tools, guardrails, evaluation and logging around the model so it can act safely inside real workflows.</p><div class="bar"></div></div>
-        <div class="layer"><div class="lvl">Layer 4</div><h3>Loop Engineering</h3><p>Agents and pipelines that run on schedule, measure their own results and improve with feedback.</p><div class="bar"></div></div>
-      </div>
-    </div>
-  </section>
- 
+
   <!-- ===== PACKAGES ===== -->
   <section id="dds-packages">
     <div class="wrap">
       <div class="head rv">
-        <span class="kicker">Training packages</span>
-        <h2>Four formats, <span class="gx">fully customisable</span></h2>
-        <p class="lead">Start with the format closest to your goal. We adjust duration, depth, tools and domain after a short discovery call.</p>
+        <span class="kicker">Programmes</span>
+        <h2>Four formats, <span class="gx">fully customised</span></h2>
+        <p class="lead">Start with the format closest to your goal. We tailor duration, depth, tools and domain after a short discovery call.</p>
       </div>
       <div class="pk-grid rv">
         <article class="pk">
           <div class="dur">1 DAY</div>
           <h3>AI Foundations for Teams</h3>
-          <p class="for">All staff, managers and non-technical teams</p>
-          <ul>
-            <li>Using AI assistants safely at work</li>
-            <li>Prompt and context engineering</li>
-            <li>Data privacy and responsible use</li>
-            <li>Mapping AI use cases in your department</li>
-          </ul>
-          <div class="out"><b>Team leaves with</b>A prioritised AI use-case backlog</div>
+          <p class="for">All staff, managers and leadership</p>
+          <ul><li>Using AI assistants safely at work</li><li>Prompt and context engineering</li><li>Data privacy and responsible AI</li><li>Department AI use-case mapping</li></ul>
+          <div class="out"><b>Outcome</b>A prioritised AI use-case backlog</div>
         </article>
         <article class="pk feat">
           <span class="flag">Most requested</span>
           <div class="dur">3 DAYS</div>
           <h3>Data &amp; AI Analyst Workshop</h3>
           <p class="for">Analysts and engineers with Python basics</p>
-          <ul>
-            <li>One unified platform: Databricks</li>
-            <li>Data quality, cleaning and SQL/Python analysis</li>
-            <li>Dashboards and AI applied to data</li>
-            <li>Copilot or any AI assistant for insight slides</li>
-          </ul>
-          <div class="out"><b>Team leaves with</b>A capstone built in teams on the final day</div>
+          <ul><li>One unified platform: Databricks</li><li>Data quality, SQL and Python analysis</li><li>Dashboards and AI applied to data</li><li>Copilot for insight slides</li></ul>
+          <div class="out"><b>Outcome</b>Team capstone projects · <a href="#dds-3day" style="color:var(--cyan)">See the 3 days</a></div>
         </article>
         <article class="pk">
           <div class="dur">5 DAYS</div>
           <h3>Agentic AI Build Track</h3>
           <p class="for">Software engineers and technical teams</p>
-          <ul>
-            <li>Retrieval (RAG) on your documents</li>
-            <li>Tool use, agents and workflows</li>
-            <li>Evaluation, guardrails and monitoring</li>
-            <li>Deploying an app your users can try</li>
-          </ul>
-          <div class="out"><b>Team leaves with</b>A deployed AI assistant on your domain</div>
+          <ul><li>RAG on your documents</li><li>Tool use, agents and workflows</li><li>Evaluation and guardrails</li><li>Deploying an internal AI app</li></ul>
+          <div class="out"><b>Outcome</b>A deployed AI assistant on your domain</div>
         </article>
         <article class="pk">
-          <div class="dur">4–8 WEEKS</div>
-          <h3>Capstone Initiative</h3>
-          <p class="for">Cross-functional teams with a real problem</p>
-          <ul>
-            <li>Problem framing with business owners</li>
-            <li>Weekly build checkpoints and mentoring</li>
-            <li>Data, model and governance reviews</li>
-            <li>Demo day for leadership</li>
-          </ul>
-          <div class="out"><b>Team leaves with</b>Working prototypes and a handover pack</div>
+          <div class="dur">6–12 WEEKS</div>
+          <h3>Innovation Programme</h3>
+          <p class="for">Cross-functional teams with real problems</p>
+          <ul><li>Training plus use-case discovery</li><li>Weekly build sprints and mentoring</li><li>Data, model and governance reviews</li><li>Leadership demo day</li></ul>
+          <div class="out"><b>Outcome</b>Innovation projects ready to implement</div>
         </article>
       </div>
-      <div class="callout rv">
-        <p><b>Combine formats.</b> Many organisations run AI Foundations for the wider team, then a technical workshop for a core group, then a Capstone Initiative to turn the best ideas into prototypes.</p>
-        <a class="btn btn-s" href="#dds-plan">Build my programme</a>
-      </div>
     </div>
   </section>
- 
-  <!-- ===== TOOLS ===== -->
-  <section class="tools">
+
+  <!-- ===== 3-DAY ===== -->
+  <section class="roadmap" id="dds-3day">
     <div class="wrap">
       <div class="head rv">
-        <span class="kicker">Tool stack</span>
-        <h2>Trained on the tools your teams actually use</h2>
-        <p class="lead">We work inside your existing licences and IT rules. Where a tool is not available, we switch to a free equivalent so no one is left out of the labs.</p>
+        <span class="kicker">Featured programme</span>
+        <h2>Data &amp; AI Analyst Workshop, <span class="gx">day by day</span></h2>
+        <p class="lead">One unified platform for the whole journey. Databricks handles data loading, quality, analysis, dashboards and AI on data. Microsoft Copilot, or any AI assistant, supports questions, exploration and insight slides.</p>
       </div>
-      <div class="t-grid rv">
-        <div class="t-group"><h3>Data platform</h3><p>Ingest, clean, analyse and govern</p>
-          <div class="chips"><span class="chip">Databricks</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">PySpark</span><span class="chip">Delta tables</span></div></div>
-        <div class="t-group"><h3>AI assistants</h3><p>Ask, explore, write and present</p>
-          <div class="chips"><span class="chip">Microsoft Copilot</span><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Gemini</span></div></div>
-        <div class="t-group"><h3>Build &amp; notebooks</h3><p>Prototype and share quickly</p>
-          <div class="chips"><span class="chip">Google Colab</span><span class="chip">Jupyter</span><span class="chip">Gradio</span><span class="chip">Hugging Face</span><span class="chip">GitHub</span></div></div>
-        <div class="t-group"><h3>LLMs &amp; agents</h3><p>Retrieval, tools and automation</p>
-          <div class="chips"><span class="chip">OpenAI API</span><span class="chip">LangChain</span><span class="chip">LlamaIndex</span><span class="chip">Pinecone</span><span class="chip">Vector search</span></div></div>
+      <div class="rm-meta rv">
+        <span class="chip c">Databricks · free, no licence needed</span>
+        <span class="chip">Copilot or any AI assistant</span>
+        <span class="chip">Prerequisite: Python + basic software engineering</span>
+        <span class="chip g">Team capstone in the final two hours</span>
+      </div>
+      <div class="days rv">
+        <article class="day">
+          <span class="dn">01</span>
+          <span class="dl">Day 1</span>
+          <h3>Foundations</h3>
+          <p class="goal">Load, trust and explore the data</p>
+          <ul><li>Databricks orientation: workspace, notebooks, tables</li><li>The sector dataset and its business questions</li><li>Data quality: missing values, duplicates, formats</li><li>Cleaning and validating with SQL and Python</li><li>AI-assisted exploration with Copilot</li></ul>
+        </article>
+        <article class="day">
+          <span class="dn">02</span>
+          <span class="dl">Day 2</span>
+          <h3>Analysis to Insight</h3>
+          <p class="goal">Answer business questions and present them</p>
+          <ul><li>SQL and Python analysis on sector questions</li><li>Combining tables to connect related data</li><li>Building dashboards in Databricks</li><li>AI on data: classification and summarisation</li><li>Insight slides with Copilot</li></ul>
+        </article>
+        <article class="day d3">
+          <span class="dn">03</span>
+          <span class="dl">Day 3</span>
+          <h3>Build and Apply</h3>
+          <p class="goal">Govern it, build it, present it</p>
+          <ul><li>Data governance and data sensitivity</li><li>Responsible AI and human review</li><li>Capstone briefing and team formation</li></ul>
+          <div class="capbox"><div class="lbl">Final two hours · Capstone</div><p>Teams build a solution on the dataset, present their findings and commit to one use case they will take forward.</p></div>
+        </article>
       </div>
     </div>
   </section>
- 
-  <!-- ===== PROCESS ===== -->
+
+  <!-- ===== GALLERY ===== -->
   <section>
     <div class="wrap">
       <div class="head rv">
-        <span class="kicker">How an engagement runs</span>
-        <h2>From discovery call to demo day</h2>
+        <span class="kicker">In the room</span>
+        <h2>Live, hands-on and <span class="gx">full of energy</span></h2>
       </div>
-      <div class="track rv">
-        <div class="stp"><div class="dot">01</div><h3>Discovery</h3><p>We learn your goals, participant roles, Python level and IT constraints.</p></div>
-        <div class="stp"><div class="dot">02</div><h3>Domain &amp; dataset</h3><p>You choose a sector sandbox or share anonymised data. We design the labs around it.</p></div>
-        <div class="stp"><div class="dot">03</div><h3>Hands-on delivery</h3><p>Short concepts, long labs. Each day builds on the same connected dataset.</p></div>
-        <div class="stp"><div class="dot">04</div><h3>Team capstone</h3><p>Participants split into teams and solve a real business problem with what they learned.</p></div>
-        <div class="stp"><div class="dot">05</div><h3>Demo &amp; handover</h3><p>Teams present. You receive notebooks, certificates and a recommendations summary.</p></div>
-      </div>
-    </div>
-  </section>
- 
-  <!-- ===== CAPSTONES ===== -->
-  <section class="capstones">
-    <div class="wrap">
-      <div class="head rv">
-        <span class="kicker">Capstone projects</span>
-        <h2>What teams <span class="gx">build</span> by the end</h2>
-        <p class="lead">Representative capstone briefs from our sector sandboxes. Your team's capstone is shaped around the problem you bring.</p>
-      </div>
-      <div class="cp-grid rv">
-        <article class="cp"><span class="sec">Security Operations</span><h3>After-hours access monitor</h3><p>Flags logins outside working hours, repeated MFA failures and access that remains after an account is disabled, with a daily summary written by an LLM.</p><div class="stack">Databricks · SQL · LLM summary</div></article>
-        <article class="cp"><span class="sec">Human Resources</span><h3>Attrition early-warning dashboard</h3><p>Combines tenure, leave patterns and grade movement to show which teams are at risk, and why, before resignations arrive.</p><div class="stack">Python · Dashboards · Copilot slides</div></article>
-        <article class="cp"><span class="sec">Telecom</span><h3>Complaint triage assistant</h3><p>Classifies free-text tickets by category and urgency, links them to network KPIs and routes the worst sites to engineering.</p><div class="stack">OpenAI API · Classification · SQL</div></article>
-        <article class="cp"><span class="sec">Energy &amp; Plant</span><h3>Predictive maintenance alerts</h3><p>Tracks vibration and temperature drift on pumps and compressors and raises a work order before an unplanned shutdown.</p><div class="stack">PySpark · Time series · Alerts</div></article>
-        <article class="cp"><span class="sec">Finance &amp; Procurement</span><h3>Duplicate invoice detector</h3><p>Finds near-identical invoices across vendors and amounts, and explains each match in plain language for the approver.</p><div class="stack">Data quality · Fuzzy matching · LLM</div></article>
-        <article class="cp"><span class="sec">Public Services</span><h3>SLA breach predictor</h3><p>Predicts which service requests will miss their target and groups citizen feedback into themes in Arabic and English.</p><div class="stack">Databricks · ML · Text themes</div></article>
-      </div>
-      <p class="disclaim">Examples use synthetic sandbox data. Client data is used only when provided by the client, anonymised, and handled under the client's data policies.</p>
-    </div>
-  </section>
- 
-  <!-- ===== OUTCOMES + CERT ===== -->
-  <section class="cert">
-    <div class="wrap">
-      <div class="rv">
-        <span class="kicker">What your organisation receives</span>
-        <h2>Skills, artefacts and evidence of learning</h2>
-        <ul class="outs">
-          <li><i>01</i><div><strong>CPD-accredited certificates</strong><br><span>For every participant who completes the programme.</span></div></li>
-          <li><i>02</i><div><strong>All notebooks, queries and datasets</strong><br><span>Teams keep every lab and can reuse them after the training.</span></div></li>
-          <li><i>03</i><div><strong>Capstone prototypes</strong><br><span>Presented by the teams, ready for your leadership to review.</span></div></li>
-          <li><i>04</i><div><strong>Recommendations summary</strong><br><span>Use cases worth pursuing, skills gaps observed and suggested next steps.</span></div></li>
-        </ul>
-      </div>
-      <div class="rv">
-        <div class="cert-img"><img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/application%20certificate.png" alt="Decoding Data Science certificate of completion"></div>
-        <div class="cpd-row">
-          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/cpdmember-logo-1-300x275.webp" alt="CPD Member logo">
-          <p>Decoding Data Science is a CPD Approved Training Provider. Certificates carry CPD recognition for professional development records.</p>
+      <div class="gal rv">
+        <div class="ph big">
+          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%209.23.48%20AM%20(1).jpeg" alt="Mohammad Arshad presenting to a full room of professionals">
+          <div class="cap-t"><b>Interactive, practitioner-led sessions</b><span>Real problems, real data, real discussion</span></div>
+        </div>
+        <div class="ph sm">
+          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%2012.21.12%20PM%20(4).jpeg" alt="Group of participants after a DDS session in Dubai">
+          <div class="cap-t"><b>Communities that keep learning</b><span>Dubai</span></div>
+        </div>
+        <div class="numbers">
+          <div class="nb"><div class="n gx">1,000+</div><div class="t">AI and data events delivered</div></div>
+          <div class="nb"><div class="n gx">194K+</div><div class="t">Learners in our community</div></div>
+          <div class="nb"><div class="n gold-t">CPD</div><div class="t">UK certified programmes</div></div>
+          <div class="nb"><div class="n gx">8</div><div class="t">Sector sandboxes and scenarios</div></div>
         </div>
       </div>
     </div>
   </section>
- 
+
+  <!-- ===== TESTIMONIALS (replace slots with real, approved quotes) ===== -->
+  <section class="pillars">
+    <div class="wrap">
+      <div class="head center rv">
+        <span class="kicker gold">Client voices</span>
+        <h2>What our clients say</h2>
+      </div>
+      <div class="t-grid rv">
+        <!-- TESTIMONIAL 1: replace the quote, initials, name and title with a real, approved testimonial, then remove class "slot" -->
+        <figure class="tc slot">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>Client testimonial to be added. Awaiting approval from the client.</blockquote>
+          <figcaption class="who"><span class="av">—</span><div><b>Name</b><span>Title, Organisation</span></div></figcaption>
+        </figure>
+        <!-- TESTIMONIAL 2 -->
+        <figure class="tc slot">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>Client testimonial to be added. Awaiting approval from the client.</blockquote>
+          <figcaption class="who"><span class="av">—</span><div><b>Name</b><span>Title, Organisation</span></div></figcaption>
+        </figure>
+        <!-- TESTIMONIAL 3 -->
+        <figure class="tc slot">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>Client testimonial to be added. Awaiting approval from the client.</blockquote>
+          <figcaption class="who"><span class="av">—</span><div><b>Name</b><span>Title, Organisation</span></div></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CPD UK ===== -->
+  <section class="cpd" id="dds-cpd">
+    <div class="wrap">
+      <div class="rv">
+        <span class="kicker gold">Accreditation</span>
+        <h2>CPD UK <span class="gold-t">certified</span> programmes</h2>
+        <p class="lead">Our programmes are certified by The CPD Certification Service in the United Kingdom. Every participant who completes the programme receives a CPD certificate recognised for professional development records.</p>
+        <div class="cpd-badge">
+          <div class="lg"><img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/TCPDS%20CERTIFIED%20-%20JPEG%20Pantone%202593%202015.jpg" alt="CPD Certified, The CPD Certification Service"></div>
+          <p><b>The CPD Certification Service</b><br>Independent accreditation of continuing professional development, United Kingdom.</p>
+        </div>
+        <ul class="ticks">
+          <li>CPD certificate for every participant who completes the programme</li>
+          <li>Learning hours recorded for professional development</li>
+          <li>Recognised across industries and professional bodies</li>
+        </ul>
+      </div>
+      <div class="rv">
+        <div class="cert-frame">
+          <!-- REPLACE: swap this placeholder with Varun's CPD UK certificate image:
+               <img src="YOUR-CERTIFICATE-URL" alt="CPD UK certificate issued by Decoding Data Science"> -->
+          <div class="cert-ph">
+            <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/TCPDS%20CERTIFIED%20-%20JPEG%20Pantone%202593%202015.jpg" alt="">
+            <b>Certificate of Attendance</b>
+            <span>CPD UK certified · Decoding Data Science</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== TRAINER ===== -->
   <section class="host">
     <div class="wrap">
@@ -523,207 +679,122 @@
       <div class="rv">
         <span class="kicker">Lead trainer</span>
         <h2>Mohammad Arshad</h2>
-        <p class="lead">Founder &amp; CEO of Decoding Data Science, with 21 years of industry experience in data, AI and technology leadership across retail, consulting and technology enterprises. Global keynote speaker at LEAP, GITEX and the Global AI Show, and creator of the Four-Layer Shift framework used across DDS programmes.</p>
-        <div class="host-meta">
-          <span class="badge hot">21 years experience</span>
-          <span class="badge">Keynote speaker</span>
-          <span class="badge">Enterprise AI delivery</span>
-          <span class="badge">194K+ learner community</span>
+        <p class="lead">Founder &amp; CEO of Decoding Data Science, with 21 years of enterprise experience across Majid Al Futaim, Accenture, HP and Dell. Global keynote speaker at LEAP, GITEX and the Global AI Show, and creator of the Four-Layer Shift framework: Prompt, Context, Harness and Loop Engineering.</p>
+        <div class="tags">
+          <span class="chip g">21 years experience</span>
+          <span class="chip c">LEAP · GITEX · Global AI Show</span>
+          <span class="chip">Enterprise AI delivery</span>
+          <span class="chip">Founder, 194K+ AI community</span>
         </div>
       </div>
     </div>
   </section>
- 
+
   <!-- ===== FAQ ===== -->
-  <section>
+  <section style="background:var(--bg2)">
     <div class="wrap faq-wrap">
       <div class="head rv">
         <span class="kicker">Questions</span>
         <h2>Frequently asked</h2>
       </div>
-      <div class="rv" id="ddsFaq">
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do we need to buy any software licences?</button><div class="faq-a"><p>No. Our labs run on Databricks' free edition and free notebook tools. If your team has Microsoft Copilot we use it; if not, participants can use any AI assistant they have access to.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you use our own data?</button><div class="faq-a"><p>Yes, if it is anonymised and your data policies allow it. Otherwise we build a synthetic dataset that mirrors your systems, tables and business questions, so the skills transfer directly.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">What technical level do participants need?</button><div class="faq-a"><p>It depends on the package. AI Foundations needs no coding. The Analyst Workshop and Build Track expect Python basics. Tell us the split between technical and non-technical participants and we set the level and lab support accordingly.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you deliver on-site?</button><div class="faq-a"><p>Yes. We deliver on-site across the UAE and the region, and live online for distributed teams. Hybrid delivery is available on request.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">How is the capstone assessed?</button><div class="faq-a"><p>Teams present their solution, the data behind it and one use case they will take forward. We review against a clear rubric covering data quality, analysis, AI use, governance and business value.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">How far in advance should we book?</button><div class="faq-a"><p>Two to three weeks gives us time to run discovery and prepare your sector dataset. Shorter timelines are possible when you choose one of our ready sandboxes.</p></div></div>
+      <div class="rv">
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do we need to buy software licences?</button><div class="faq-a"><p>No. Our labs run on the free edition of Databricks and free notebook tools. If your team has Microsoft Copilot we use it; if not, participants use any AI assistant they have access to.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Can the training use our own data?</button><div class="faq-a"><p>Yes, when it is anonymised and your policies allow it. Otherwise we build a realistic dataset that mirrors your systems and business questions, so skills transfer directly.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What happens to the innovation projects after training?</button><div class="faq-a"><p>Teams present their projects to leadership with a value case and an implementation plan. Selected projects can move to a pilot, with DDS supporting your team through mentoring or a co-build engagement.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What technical level do participants need?</button><div class="faq-a"><p>AI Foundations needs no coding. Technical programmes expect Python basics. Share the split between technical and non-technical participants and we set the level accordingly.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you deliver on-site?</button><div class="faq-a"><p>Yes, on-site across the UAE and GCC, live online for distributed teams, or a hybrid of both.</p></div></div>
       </div>
     </div>
   </section>
- 
-  <!-- ===== FINAL CTA ===== -->
-  <section class="final" id="dds-plan">
+
+  <!-- ===== FINAL ===== -->
+  <section class="final" id="dds-contact">
+    <div class="beams" aria-hidden="true"><span class="beam"></span><span class="beam"></span><span class="beam"></span></div>
     <div class="wrap">
-      <div class="final-grid">
-        <div class="rv">
-          <span class="kicker">Start here</span>
-          <h2>Bring us a problem. Your team leaves with a <span class="gx">solution</span>.</h2>
-          <p class="lead" style="margin-bottom:28px">Book a 20-minute discovery call. We will propose a format, a sector dataset and a capstone brief within 48 hours.</p>
-          <div class="cta-row">
-            <a class="btn btn-p" href="https://decodingdatascience.com/contact" target="_blank" rel="noopener">Book a discovery call →</a>
-            <a class="btn btn-s" href="#dds-sectors">Explore sector sandboxes</a>
-          </div>
-        </div>
-        <div class="brief rv">
-          <div class="s-label">Have these ready for the call</div>
-          <ol>
-            <li>Number of participants and their roles</li>
-            <li>Python and SQL level, or the technical / non-technical split</li>
-            <li>Preferred sector or your own anonymised data</li>
-            <li>The outcome you want after the training</li>
-            <li>Preferred dates and on-site or online delivery</li>
-          </ol>
-        </div>
+      <span class="kicker gold">Start the conversation</span>
+      <h2>Turn your team into your <span class="gx">AI advantage</span></h2>
+      <p class="lead">Tell us your goals, your teams and your sector. We will propose a programme, a dataset and an innovation track built for your organisation.</p>
+      <div class="cta-row">
+        <a class="btn btn-p" href="https://decodingdatascience.com" target="_blank" rel="noopener">Request a proposal →</a>
+        <a class="btn btn-s" href="#dds-packages">Compare programmes</a>
       </div>
-      <div class="org-line">Decoding Data Science · Dubai, UAE · CPD Approved Training Provider</div>
+      <p class="contact-line">Decoding Data Science · Dubai, United Arab Emirates</p>
     </div>
   </section>
- 
-  <div class="float-cta"><a href="#dds-plan">Plan your team's training →</a></div>
+
+  <footer class="foot">
+    <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/DDS%20HIGH%20RES%20Logo%20%20copywhite.png" alt="Decoding Data Science">
+    Decoding Data Science · Dubai, UAE · CPD UK Certified Programmes
+  </footer>
+
+  <div class="float-cta"><a href="#dds-contact">Request a proposal →</a></div>
 </div>
- 
+
 <script>
 (function(){
   var root=document.getElementById('dds-corp'); if(!root) return;
-  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
- 
-  /* ---------- Hero console ---------- */
-  var queries=[
-    {path:'workspace / sandbox / security_ops / lab_02.sql',
-     code:'<span class="c">-- Accounts logging in outside 07:00–19:00</span>\n<span class="k">SELECT</span> user_id, dept,\n  <span class="k">COUNT</span>(*) <span class="k">AS</span> after_hours,\n  <span class="k">SUM</span>(mfa_result = <span class="s">\'FAIL\'</span>) <span class="k">AS</span> mfa_fails\n<span class="k">FROM</span> login_events\n<span class="k">WHERE HOUR</span>(ts) <span class="k">NOT BETWEEN</span> 7 <span class="k">AND</span> 19\n<span class="k">GROUP BY</span> user_id, dept <span class="k">ORDER BY</span> after_hours <span class="k">DESC</span>;',
-     head:['user_id','dept','after_hours','mfa_fails'],
-     rows:[['U-10482','Finance','37','9'],['U-20817','IT Ops','22','0'],['U-31106','HR','18','6']],flag:3,
-     meta:'3 rows · 0.84s',hint:'"Explain why these accounts are flagged"'},
-    {path:'workspace / sandbox / human_resources / lab_03.sql',
-     code:'<span class="c">-- First-year attrition by department</span>\n<span class="k">SELECT</span> dept,\n  <span class="k">COUNT</span>(*) <span class="k">AS</span> hires,\n  <span class="k">SUM</span>(<span class="k">DATEDIFF</span>(exit_date, join_date) &lt; 365) <span class="k">AS</span> left_y1\n<span class="k">FROM</span> employees\n<span class="k">WHERE</span> join_date &gt;= <span class="s">\'2024-01-01\'</span>\n<span class="k">GROUP BY</span> dept <span class="k">ORDER BY</span> left_y1 <span class="k">DESC</span>;',
-     head:['dept','hires','left_y1','rate'],
-     rows:[['Customer Svc','64','17','26.6%'],['Operations','48','9','18.8%'],['Finance','22','2','9.1%']],flag:3,
-     meta:'3 rows · 0.61s',hint:'"Draft a slide on the top attrition driver"'},
-    {path:'workspace / sandbox / telecom / lab_04.sql',
-     code:'<span class="c">-- Sites with the most complaints and drops</span>\n<span class="k">SELECT</span> k.site_id,\n  <span class="k">AVG</span>(k.drop_rate) <span class="k">AS</span> drop_pct,\n  <span class="k">COUNT</span>(t.ticket_id) <span class="k">AS</span> complaints\n<span class="k">FROM</span> cell_kpis k <span class="k">JOIN</span> tickets t <span class="k">USING</span> (site_id)\n<span class="k">GROUP BY</span> k.site_id\n<span class="k">ORDER BY</span> complaints <span class="k">DESC</span>;',
-     head:['site_id','drop_pct','complaints','top_issue'],
-     rows:[['DXB-114','2.9','412','Call drops'],['SHJ-027','2.1','288','Slow data'],['AUH-063','1.4','190','Billing']],flag:1,
-     meta:'3 rows · 1.12s',hint:'"Classify ticket text into issue categories"'},
-    {path:'workspace / sandbox / energy_plant / lab_05.sql',
-     code:'<span class="c">-- Pumps drifting above vibration baseline</span>\n<span class="k">SELECT</span> asset_id,\n  <span class="k">AVG</span>(vibration_mm_s) <span class="k">AS</span> vib_7d,\n  <span class="k">MAX</span>(temp_c) <span class="k">AS</span> peak_temp\n<span class="k">FROM</span> sensor_readings\n<span class="k">WHERE</span> ts &gt;= <span class="k">CURRENT_DATE</span> - <span class="k">INTERVAL</span> 7 <span class="k">DAYS</span>\n<span class="k">GROUP BY</span> asset_id <span class="k">HAVING</span> vib_7d &gt; 4.5;',
-     head:['asset_id','vib_7d','peak_temp','status'],
-     rows:[['PMP-207','7.1','88.4','Alert'],['PMP-118','5.6','79.0','Watch'],['CMP-031','4.9','74.2','Watch']],flag:3,
-     meta:'3 rows · 0.97s',hint:'"Write a work order for PMP-207"'}
-  ];
-  var cIdx=0, timer=null, typer=null;
-  var codeEl=root.querySelector('#ddsCode'), resEl=root.querySelector('#ddsRes');
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function renderTable(q){
-    var h='<thead><tr>'+q.head.map(function(x){return '<th>'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>';
-    q.rows.forEach(function(r){h+='<tr>'+r.map(function(c,i){return '<td'+(i===q.flag?' class="flag"':'')+'>'+esc(c)+'</td>'}).join('')+'</tr>'});
-    resEl.innerHTML=h+'</tbody>';
-  }
-  function showQuery(i,animate){
-    cIdx=i; var q=queries[i];
-    root.querySelector('#ddsCPath').textContent=q.path;
-    root.querySelector('#ddsCMeta').textContent=q.meta;
-    root.querySelector('#ddsCHint').textContent=q.hint;
-    root.querySelectorAll('.c-tab').forEach(function(t){t.setAttribute('aria-selected',String(+t.dataset.c===i))});
-    renderTable(q);
-    clearInterval(typer);
-    if(!animate||reduce){codeEl.innerHTML=q.code+'<span class="cur"></span>';return}
-    // reveal line by line (keeps markup intact)
-    var lines=q.code.split('\n'), n=1;
-    codeEl.innerHTML=lines.slice(0,1).join('\n')+'<span class="cur"></span>';
-    typer=setInterval(function(){n++;codeEl.innerHTML=lines.slice(0,n).join('\n')+'<span class="cur"></span>';if(n>=lines.length)clearInterval(typer)},170);
-  }
-  function cycle(){clearInterval(timer);if(reduce)return;timer=setInterval(function(){showQuery((cIdx+1)%queries.length,true)},7000)}
-  root.querySelectorAll('.c-tab').forEach(function(t){t.addEventListener('click',function(){showQuery(+t.dataset.c,true);cycle()})});
-  showQuery(0,false); cycle();
- 
-  /* ---------- Sector switcher ---------- */
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+  /* ---------- Sectors ---------- */
   var sectors=[
-    {id:'hr',name:'Human Resources',ready:true,
-     desc:'Workforce, attendance, leave and recruitment data for a mid-sized organisation, with realistic gaps and inconsistencies for data-quality labs.',
+    {name:'Human Resources',desc:'Workforce, attendance, leave and recruitment data with realistic gaps for data-quality labs.',
      tables:[['employees','emp_id, dept, grade, manager_id, join_date, exit_date'],['leave_requests','emp_id, leave_type, start_date, days, status'],['attendance','emp_id, date, check_in, check_out, location'],['recruitment','req_id, role, opened, filled, source, stage']],
-     qs:['Which departments lose new hires within the first year?','Where do leave balances build up before year end?','How long does each hiring stage take, and where does it stall?','Is late check-in linked to a team, a shift or a location?'],
-     caps:['Attrition early-warning dashboard with drivers explained','HR policy assistant that answers leave questions from the handbook']},
-    {id:'sec',name:'Security Operations',ready:true,
-     desc:'Authentication, access and incident data across systems and devices, including after-hours activity, MFA failures and orphaned accounts.',
-     tables:[['login_events','user_id, ts, ip, device, location, mfa_result'],['access_grants','user_id, system, role, granted_on, revoked_on'],['incidents','incident_id, severity, category, opened, closed, notes'],['assets','asset_id, owner, system, criticality']],
-     qs:['Which accounts log in outside working hours or from new devices?','Which systems still allow access after an account is disabled?','How quickly are high-severity incidents closed?','Which incident categories are rising month on month?'],
-     caps:['Login anomaly monitor with a daily AI-written summary','Incident triage assistant that classifies and summarises tickets']},
-    {id:'tel',name:'Telecom',ready:true,
-     desc:'Subscriber, usage, complaint and network KPI data that lets teams connect customer experience to network performance.',
-     tables:[['subscribers','sub_id, plan, region, tenure_months, status'],['usage_daily','sub_id, date, data_mb, voice_min, roaming'],['tickets','ticket_id, sub_id, category, text, resolved_hours'],['cell_kpis','site_id, hour, drop_rate, latency_ms, load_pct']],
-     qs:['Which plans churn after a network incident?','Which cell sites drive the most complaints?','What do customers complain about most, in their own words?','Which high-value customers are at risk this month?'],
-     caps:['Churn-risk scoring with a retention target list','Complaint triage that classifies free-text tickets with an LLM']},
-    {id:'energy',name:'Energy & Plant Operations',ready:true,
-     desc:'Sensor telemetry, maintenance history, downtime and energy consumption for pumps, compressors and production lines.',
+     qs:['Which departments lose new hires within the first year?','Where does hiring stall, and for how long?','Is late check-in linked to a team, shift or location?'],
+     caps:['Attrition early-warning dashboard','HR policy assistant that answers from the handbook']},
+    {name:'Security Operations',desc:'Authentication, access and incident data, including after-hours activity, MFA failures and orphaned accounts.',
+     tables:[['login_events','user_id, ts, ip, device, location, mfa_result'],['access_grants','user_id, system, role, granted_on, revoked_on'],['incidents','incident_id, severity, category, opened, closed'],['assets','asset_id, owner, system, criticality']],
+     qs:['Which accounts log in after hours or from new devices?','Which systems still allow access after an account is disabled?','How fast are high-severity incidents closed?'],
+     caps:['Login anomaly monitor with an AI daily summary','Incident triage assistant']},
+    {name:'Telecom',desc:'Subscriber, usage, complaint and network KPI data that links customer experience to network performance.',
+     tables:[['subscribers','sub_id, plan, region, tenure_months, status'],['usage_daily','sub_id, date, data_mb, voice_min'],['tickets','ticket_id, sub_id, category, text, resolved_hours'],['cell_kpis','site_id, hour, drop_rate, latency_ms, load_pct']],
+     qs:['Which plans churn after a network incident?','Which cell sites drive the most complaints?','What do customers complain about, in their own words?'],
+     caps:['Churn-risk scoring and retention list','LLM complaint classifier']},
+    {name:'Energy & Plant',desc:'Sensor telemetry, maintenance history, downtime and energy consumption for pumps, compressors and lines.',
      tables:[['sensor_readings','asset_id, ts, temp_c, vibration_mm_s, pressure_bar'],['work_orders','wo_id, asset_id, type, opened, closed, cost_aed'],['downtime','asset_id, start_ts, end_ts, cause, planned'],['energy_meter','site, hour, kwh, tariff_band']],
-     qs:['Which assets show vibration drift before failure?','What does unplanned downtime cost per line each month?','Which shifts use the most energy per unit produced?','Are preventive work orders reducing breakdowns?'],
-     caps:['Predictive maintenance alert board','Shift handover summariser that reads logs and work orders']},
-    {id:'fin',name:'Finance & Procurement',ready:false,
-     desc:'Invoices, purchase orders, vendors and budgets for spend analysis, control testing and anomaly detection.',
-     tables:[['invoices','inv_id, vendor_id, amount_aed, issued, due, paid'],['purchase_orders','po_id, dept, category, value_aed, approved_by'],['vendors','vendor_id, name, country, rating, onboarded'],['budget','dept, month, planned_aed, actual_aed']],
-     qs:['Which invoices look duplicated or split to avoid approval limits?','Which departments exceed budget, and on what categories?','How many days do we take to pay each vendor?'],
-     caps:['Duplicate invoice and spend anomaly detector','Contract and policy Q&A assistant for approvers']},
-    {id:'pm',name:'Project Management',ready:false,
-     desc:'Project portfolio, task, risk and timesheet data for delivery tracking and forecasting.',
-     tables:[['projects','proj_id, sponsor, budget_aed, start, planned_end'],['tasks','task_id, proj_id, owner, status, due, done'],['risks','risk_id, proj_id, impact, likelihood, owner'],['timesheets','emp_id, proj_id, week, hours']],
-     qs:['Which projects are drifting past their baseline?','Which risks repeat across projects?','Where is effort being spent versus planned?'],
-     caps:['Portfolio health dashboard','Weekly status report generator from task and risk data']},
-    {id:'gov',name:'Public Services',ready:false,
-     desc:'Service requests, SLA targets, channel usage and citizen feedback, including Arabic and English comments.',
+     qs:['Which assets drift before failure?','What does unplanned downtime cost per line?','Are preventive work orders reducing breakdowns?'],
+     caps:['Predictive maintenance alert board','Shift handover summariser']},
+    {name:'Finance & Procurement',desc:'Invoices, purchase orders, vendors and budgets for spend analysis and anomaly detection.',
+     tables:[['invoices','inv_id, vendor_id, amount_aed, issued, due, paid'],['purchase_orders','po_id, dept, category, value_aed, approved_by'],['vendors','vendor_id, country, rating, onboarded'],['budget','dept, month, planned_aed, actual_aed']],
+     qs:['Which invoices look duplicated or split?','Which departments exceed budget, and where?','How long do we take to pay each vendor?'],
+     caps:['Duplicate invoice detector','Policy Q&A assistant for approvers']},
+    {name:'Public Services',desc:'Service requests, SLA targets, channels and citizen feedback in Arabic and English.',
      tables:[['service_requests','req_id, service, channel, submitted, closed'],['sla_targets','service, target_days'],['feedback','req_id, rating, comment, language'],['branch_queue','branch, hour, waiting, served']],
      qs:['Which services miss their SLA most often?','Which channels resolve requests fastest?','What themes appear in negative feedback?'],
-     caps:['SLA breach predictor','Feedback theme classifier for Arabic and English comments']},
-    {id:'scm',name:'Operations & Supply Chain',ready:false,
-     desc:'Inventory, orders, shipments and supplier performance for planning and fulfilment analysis.',
-     tables:[['inventory','sku, site, on_hand, reorder_point'],['orders','order_id, sku, qty, order_date, channel'],['shipments','ship_id, supplier_id, eta, delivered'],['suppliers','supplier_id, country, lead_time_days, rating']],
-     qs:['Which SKUs will stock out in the next two weeks?','Which suppliers deliver late most often?','How does lead time affect fulfilment?'],
-     caps:['Demand forecast with reorder alerts','Supplier performance scorecard']}
+     caps:['SLA breach predictor','Arabic and English feedback theme classifier']}
   ];
   var list=root.querySelector('#ddsSList'), panel=root.querySelector('#ddsSPanel');
-  list.innerHTML=sectors.map(function(s,i){
-    return '<button class="s-btn" role="tab" id="dds-tab-'+s.id+'" aria-selected="'+(i===1)+'" data-i="'+i+'">'+esc(s.name)+'<small class="'+(s.ready?'ready':'req')+'">'+(s.ready?'Sandbox ready':'On request')+'</small></button>'
-  }).join('');
-  function showSector(i){
+  list.innerHTML=sectors.map(function(s,i){return '<button class="s-btn" role="tab" id="dds-st-'+i+'" aria-selected="'+(i===0)+'" data-i="'+i+'"><span class="rd"></span>'+esc(s.name)+'</button>'}).join('');
+  function show(i){
     var s=sectors[i];
     list.querySelectorAll('.s-btn').forEach(function(b){b.setAttribute('aria-selected',String(+b.dataset.i===i))});
-    panel.setAttribute('aria-labelledby','dds-tab-'+s.id);
-    panel.innerHTML=
-      '<div class="s-top"><h3>'+esc(s.name)+'</h3><span class="badge '+(s.ready?'hot':'')+'">'+(s.ready?'Sandbox ready · deploy in days':'Built for your programme')+'</span></div>'+
-      '<p class="s-desc">'+esc(s.desc)+'</p>'+
-      '<div class="s-cols"><div><div class="s-label">Connected tables</div><div class="schema">'+
-        s.tables.map(function(t){return '<div class="tbl"><b>'+esc(t[0])+'</b><span>('+esc(t[1])+')</span></div>'}).join('')+
-      '</div></div><div><div class="s-label">Business questions in the labs</div><ul class="qs">'+
-        s.qs.map(function(q){return '<li>'+esc(q)+'</li>'}).join('')+
-      '</ul></div></div>'+
-      '<div class="caps">'+s.caps.map(function(c,k){return '<div class="cap"><div class="s-label">Capstone brief '+(k+1)+'</div><p>'+esc(c)+'</p></div>'}).join('')+'</div>'+
-      '<p class="s-note"><b>Need a different domain?</b> Tell us your systems and questions and we will design a dataset and scenario for your programme.</p>';
+    panel.setAttribute('aria-labelledby','dds-st-'+i);
+    panel.innerHTML='<div><h3>'+esc(s.name)+'</h3><p class="s-desc">'+esc(s.desc)+'</p><div class="lbl">Connected tables</div><div class="schema">'+
+      s.tables.map(function(t){return '<div class="tbl"><b>'+esc(t[0])+'</b> <span>('+esc(t[1])+')</span></div>'}).join('')+'</div></div>'+
+      '<div><div class="lbl">Business questions in the labs</div><ul class="qs">'+s.qs.map(function(q){return '<li>'+esc(q)+'</li>'}).join('')+'</ul>'+
+      s.caps.map(function(c,k){return '<div class="cap"><div class="lbl">Capstone brief '+(k+1)+'</div><p>'+esc(c)+'</p></div>'}).join('')+'</div>';
   }
-  list.addEventListener('click',function(e){var b=e.target.closest('.s-btn');if(b)showSector(+b.dataset.i)});
-  list.addEventListener('keydown',function(e){
-    if(e.key!=='ArrowDown'&&e.key!=='ArrowUp'&&e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
-    var cur=+(list.querySelector('[aria-selected="true"]')||{dataset:{i:0}}).dataset.i;
-    var n=(cur+((e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1)+sectors.length)%sectors.length;
-    showSector(n); list.querySelectorAll('.s-btn')[n].focus(); e.preventDefault();
-  });
-  showSector(1);
- 
+  list.addEventListener('click',function(e){var b=e.target.closest('.s-btn');if(b)show(+b.dataset.i)});
+  show(0);
+
   /* ---------- FAQ ---------- */
   root.querySelectorAll('.faq-q').forEach(function(q){
-    q.addEventListener('click',function(){
-      var it=q.parentElement, a=it.querySelector('.faq-a'), open=it.classList.toggle('open');
-      q.setAttribute('aria-expanded',String(open)); a.style.maxHeight=open?a.scrollHeight+'px':'0';
-    });
+    q.addEventListener('click',function(){var it=q.parentElement,a=it.querySelector('.faq-a'),o=it.classList.toggle('open');q.setAttribute('aria-expanded',String(o));a.style.maxHeight=o?a.scrollHeight+'px':'0'});
   });
- 
-  /* ---------- Reveal (only for content below the first screen) ---------- */
-  if(!reduce&&'IntersectionObserver' in window){
-    var vh=window.innerHeight||800;
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}})},{threshold:.12});
-    root.querySelectorAll('.rv').forEach(function(el){
-      if(el.getBoundingClientRect().top>vh){el.classList.add('pre');io.observe(el)}
-    });
-    setTimeout(function(){root.querySelectorAll('.rv.pre').forEach(function(el){el.classList.remove('pre')})},6000);
-  }
+
+  if(reduce||!('IntersectionObserver' in window)) return;
+
+  /* ---------- Count-up on hero stats ---------- */
+  root.querySelectorAll('[data-count]').forEach(function(el){
+    var end=+el.dataset.count,suf=el.dataset.suf||'',t0=null;
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  });
+
+  /* ---------- Reveal below the fold ---------- */
+  var vh=window.innerHeight||800;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}})},{threshold:.1});
+  root.querySelectorAll('.rv').forEach(function(el){if(el.getBoundingClientRect().top>vh){el.classList.add('pre');io.observe(el)}});
+  setTimeout(function(){root.querySelectorAll('.rv.pre').forEach(function(el){el.classList.remove('pre')})},7000);
 })();
 </script>
