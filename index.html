@@ -1,4 +1,17 @@
-<title>DDS Corporate Training</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05080f">
+<title>Corporate AI Training UAE | Decoding Data Science</title>
+<meta name="description" content="CPD UK certified corporate AI and data training in the UAE and GCC. We upskill your own teams on your data, then guide them to build and implement real AI innovation projects.">
+<meta property="og:title" content="Build AI capability inside your organisation | Decoding Data Science">
+<meta property="og:description" content="CPD UK certified corporate AI training, innovation projects and AI delivery for UAE and GCC organisations.">
+<meta property="og:image" content="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%209.23.48%20AM%20(1).jpeg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <!-- ============================================================
   Decoding Data Science — Corporate AI Training & Innovation
@@ -217,21 +230,41 @@
   #dds-corp .capbox .lbl{color:var(--gold);margin-bottom:6px}
   #dds-corp .capbox p{font-size:14px}
 
+  /* ---------- PHOTO BAND ---------- */
+  #dds-corp .band{position:relative;isolation:isolate;overflow:hidden;padding-block:120px;border-block:1px solid var(--line)}
+  #dds-corp .band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:-2;filter:saturate(.85)}
+  #dds-corp .band::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,8,15,.92),rgba(5,8,15,.62) 45%,rgba(5,8,15,.92)),radial-gradient(600px 300px at 50% 50%,rgba(139,92,246,.18),transparent 70%)}
+  #dds-corp .band .vs-quote{margin:0 auto;font-size:clamp(24px,3.4vw,40px);line-height:1.25;font-weight:600;text-wrap:balance;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+
   /* ---------- GALLERY ---------- */
-  #dds-corp .gal{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:18px}
+  #dds-corp .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:16px}
   #dds-corp .gal>*{min-width:0}
-  #dds-corp .ph{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+  #dds-corp .ph{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel);margin:0}
   #dds-corp .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
   #dds-corp .ph:hover img{transform:scale(1.05)}
-  #dds-corp .ph.big{grid-row:span 2;min-height:420px}
-  #dds-corp .ph.sm{aspect-ratio:4/3}
-  #dds-corp .ph .cap-t{position:absolute;left:0;right:0;bottom:0;padding:22px 20px 18px;background:linear-gradient(0deg,rgba(5,8,15,.92),rgba(5,8,15,0));font-size:14px}
-  #dds-corp .ph .cap-t b{display:block;font-family:var(--f-display);font-size:18px}
+  #dds-corp .ph.a{grid-column:span 2;grid-row:span 2}
+  #dds-corp .ph.e{grid-column:span 2}
+  #dds-corp .ph.b{grid-column:3;grid-row:1}
+  #dds-corp .ph.c{grid-column:4;grid-row:1}
+  #dds-corp .ph.d{grid-column:3;grid-row:2}
+  #dds-corp .ph.e{display:none}
+  #dds-corp .ph.d{grid-column:3 / span 2}
+  /* detail crops taken from the same real photos */
+  #dds-corp .ph img.z-speaker{transform-origin:57% 54%;transform:scale(3.4)}
+  #dds-corp .ph:hover img.z-speaker{transform:scale(3.55)}
+  #dds-corp .ph img.z-room{transform-origin:88% 78%;transform:scale(1.9)}
+  #dds-corp .ph:hover img.z-room{transform:scale(2)}
+  #dds-corp .ph img.z-group{transform-origin:30% 60%;transform:scale(1.8)}
+  #dds-corp .ph:hover img.z-group{transform:scale(1.9)}
+  #dds-corp .ph .cap-t{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 16px;background:linear-gradient(0deg,rgba(5,8,15,.94),rgba(5,8,15,0));font-size:13.5px}
+  #dds-corp .ph .cap-t b{display:block;font-family:var(--f-display);font-size:17px}
   #dds-corp .ph .cap-t span{color:var(--muted)}
-  #dds-corp .numbers{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:stretch}
-  #dds-corp .nb{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center}
+  #dds-corp .swipe-hint{display:none}
+  #dds-corp .numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+  #dds-corp .nb{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;justify-content:center}
   #dds-corp .nb .n{font-family:var(--f-display);font-size:32px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
   #dds-corp .nb .t{font-size:13px;color:var(--muted);margin-top:6px}
+  #dds-corp .cert-note{margin-top:14px;font-size:13px;color:var(--muted);text-align:center}
 
   /* ---------- TESTIMONIALS ---------- */
   #dds-corp .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -296,6 +329,8 @@
 
   /* floating mobile CTA */
   #dds-corp .float-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:0 max(14px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));pointer-events:none}
+  #dds-corp .float-cta{transform:translateY(130%);transition:transform .35s ease}
+  #dds-corp .float-cta.on{transform:none}
   #dds-corp .float-cta a{pointer-events:auto;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--grad);color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:15.5px;padding:15px;border-radius:14px;box-shadow:0 12px 36px rgba(34,211,238,.45)}
 
   /* ---------- RESPONSIVE ---------- */
@@ -306,8 +341,7 @@
   @media(max-width:900px){
     #dds-corp section{padding-block:76px}
     #dds-corp .vs-grid,#dds-corp .p-grid,#dds-corp .s-panel,#dds-corp .days,#dds-corp .t-grid,#dds-corp .cpd .wrap{grid-template-columns:1fr}
-    #dds-corp .gal{grid-template-columns:1fr}
-    #dds-corp .ph.big{grid-row:auto;min-height:0;aspect-ratio:4/3}
+    #dds-corp .cpd .wrap{gap:36px}
     #dds-corp .flow{grid-template-columns:1fr;gap:18px}
     #dds-corp .flow::before{left:31px;right:auto;top:32px;bottom:32px;width:2px;height:auto;background:linear-gradient(180deg,var(--cyan),var(--violet),var(--gold))}
     #dds-corp .flow::after{display:none}
@@ -315,24 +349,74 @@
     #dds-corp .fs .dot{grid-row:span 2}
     #dds-corp .fs p{max-width:none}
     #dds-corp .cert-frame{transform:none}
-    #dds-corp .host .wrap{grid-template-columns:1fr;justify-items:center;text-align:center}
+    #dds-corp .host .wrap{grid-template-columns:1fr;justify-items:center;text-align:center;gap:32px}
     #dds-corp .host-photo{max-width:300px}
     #dds-corp .tags{justify-content:center}
-    #dds-corp .hero-stats{grid-template-columns:repeat(2,auto)}
+    /* gallery becomes a swipeable photo carousel */
+    #dds-corp .gal{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:-20px;padding:0 20px 4px;scroll-padding-inline:20px}
+    #dds-corp .gal::-webkit-scrollbar{display:none}
+    #dds-corp .gal .ph{flex:0 0 82%;height:300px;scroll-snap-align:start;display:block}
+    #dds-corp .swipe-hint{display:block;margin-top:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right}
+    #dds-corp .numbers{grid-template-columns:1fr 1fr}
   }
   @media(max-width:600px){
-    #dds-corp section{padding-block:60px}
+    #dds-corp{font-size:15.5px}
+    #dds-corp section{padding-block:56px}
+    #dds-corp h2{font-size:clamp(27px,7.6vw,34px)}
+    #dds-corp .lead{font-size:16px}
+    #dds-corp .head{margin-bottom:30px}
+    #dds-corp .kicker{font-size:11px;letter-spacing:.16em;margin-bottom:12px}
     #dds-corp .pk-grid{grid-template-columns:1fr}
-    #dds-corp .nav .btn{display:none}
-    #dds-corp .hero .wrap{padding-block:64px 56px}
-    #dds-corp .hero::before{background:linear-gradient(0deg,rgba(5,8,15,1) 0%,rgba(5,8,15,.86) 50%,rgba(5,8,15,.7) 100%)}
-    #dds-corp .cta-row .btn{width:100%;justify-content:center}
-    #dds-corp .vs,#dds-corp .s-panel,#dds-corp .pl{padding:22px}
-    #dds-corp .client{min-width:170px;height:72px;padding:0 18px}
-    #dds-corp .client .cn{font-size:20px}
+    /* nav: compact logo + small CTA */
+    #dds-corp .nav .wrap{height:60px}
+    #dds-corp .nav .logo{height:36px}
+    #dds-corp .nav .btn{padding:8px 13px;font-size:12.5px;border-radius:10px}
+    #dds-corp .nav .btn::after{display:none}
+    /* hero: show the real photo as a clear band, then the headline */
+    #dds-corp .hero-bg{bottom:auto;height:330px}
+    #dds-corp .hero-bg img{object-position:58% 50%;animation:none;transform:scale(1.02)}
+    #dds-corp .hero::before{background:linear-gradient(180deg,rgba(5,8,15,.15) 0px,rgba(5,8,15,.35) 150px,rgba(5,8,15,.92) 290px,var(--bg) 330px),radial-gradient(400px 300px at 10% 420px,rgba(34,211,238,.14),transparent 70%)}
+    #dds-corp .hero .wrap{padding-block:215px 48px}
+    #dds-corp .pill{font-size:10px;padding:5px 11px 5px 5px;margin-bottom:18px;letter-spacing:0;max-width:100%;white-space:nowrap;gap:8px}
+    #dds-corp .pill b{font-size:9.5px;padding:3px 8px;white-space:nowrap}
+    #dds-corp .hero h1{font-size:clamp(33px,9.6vw,40px);margin-bottom:16px;letter-spacing:-.025em}
+    #dds-corp .hero .sub{font-size:16px;margin-bottom:26px;color:#c9d2e3}
+    #dds-corp .cta-row{gap:10px}
+    #dds-corp .cta-row .btn{width:100%;justify-content:center;padding:15px 20px}
+    #dds-corp .hero-stats{grid-template-columns:1fr 1fr;width:100%;gap:10px;margin-top:30px;padding-top:0;border-top:none}
+    #dds-corp .hs{background:rgba(14,22,39,.72);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px}
+    #dds-corp .hs .n{font-size:26px}
+    #dds-corp .hs .t{font-size:12px;line-height:1.35}
+    /* clients */
+    #dds-corp .clients{padding-block:30px}
+    #dds-corp .clients .lab{font-size:10.5px;letter-spacing:.18em;margin-bottom:16px;padding-inline:20px}
+    #dds-corp .client{min-width:150px;height:66px;padding:0 16px}
+    #dds-corp .client .cn{font-size:19px}
+    #dds-corp .client .cs{font-size:10.5px}
+    /* cards */
+    #dds-corp .vs,#dds-corp .s-panel,#dds-corp .pl,#dds-corp .pk,#dds-corp .day{padding:22px}
+    #dds-corp .vs h3{font-size:21px;margin:8px 0 18px}
+    #dds-corp .vs li{font-size:14.5px}
+    #dds-corp .band{padding-block:84px}
+    #dds-corp .band .vs-quote{font-size:25px}
+    /* sector tabs scroll sideways instead of stacking */
+    #dds-corp .s-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-20px;padding:2px 20px 6px}
+    #dds-corp .s-tabs::-webkit-scrollbar{display:none}
+    #dds-corp .s-btn{flex:0 0 auto;font-size:14px;padding:9px 15px}
+    #dds-corp .s-panel h3{font-size:22px}
+    #dds-corp .rm-meta .chip{font-size:11px}
+    #dds-corp .day .dn{font-size:52px}
+    #dds-corp .gal .ph{flex-basis:86%;height:260px}
+    #dds-corp .nb{padding:16px}
+    #dds-corp .nb .n{font-size:26px}
+    #dds-corp .cpd-badge .lg{width:92px}
+    #dds-corp .host-photo{max-width:240px}
+    #dds-corp .faq-q{font-size:15.5px;padding:18px 50px 18px 18px}
+    #dds-corp .faq-a p{padding:0 18px 18px}
     #dds-corp .float-cta{display:block}
     #dds-corp .final{padding-block:72px 120px}
-    #dds-corp .numbers .n{font-size:26px}
+    #dds-corp .final h2{font-size:clamp(30px,8.4vw,38px)}
+    #dds-corp .foot{padding-bottom:96px}
   }
   @media (prefers-reduced-motion:reduce){
     #dds-corp *{animation:none!important;transition:none!important}
@@ -340,6 +424,9 @@
   }
 </style>
 
+</head>
+<body>
+<!-- WP-START -->
 <div id="dds-corp">
 
   <!-- ===== NAV ===== -->
@@ -431,9 +518,14 @@
           </ul>
         </div>
       </div>
-      <p class="vs-quote rv">The best AI engineer for your organisation <span>already works for you.</span> They just need the right training.</p>
     </div>
   </section>
+
+  <!-- ===== PHOTO BAND ===== -->
+  <div class="band">
+    <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%2012.21.12%20PM%20(4).jpeg" alt="Professionals at a Decoding Data Science session in Dubai">
+    <div class="wrap"><p class="vs-quote">The best AI engineer for your organisation <span>already works for you.</span> They just need the right training.</p></div>
+  </div>
 
   <!-- ===== PILLARS ===== -->
   <section class="pillars" id="dds-services">
@@ -586,33 +678,46 @@
   </section>
 
   <!-- ===== GALLERY ===== -->
-  <section>
+  <section id="dds-gal-sec">
     <div class="wrap">
       <div class="head rv">
         <span class="kicker">In the room</span>
         <h2>Live, hands-on and <span class="gx">full of energy</span></h2>
       </div>
       <div class="gal rv">
-        <div class="ph big">
-          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%209.23.48%20AM%20(1).jpeg" alt="Mohammad Arshad presenting to a full room of professionals">
-          <div class="cap-t"><b>Interactive, practitioner-led sessions</b><span>Real problems, real data, real discussion</span></div>
-        </div>
-        <div class="ph sm">
-          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%2012.21.12%20PM%20(4).jpeg" alt="Group of participants after a DDS session in Dubai">
-          <div class="cap-t"><b>Communities that keep learning</b><span>Dubai</span></div>
-        </div>
-        <div class="numbers">
-          <div class="nb"><div class="n gx">1,000+</div><div class="t">AI and data events delivered</div></div>
-          <div class="nb"><div class="n gx">194K+</div><div class="t">Learners in our community</div></div>
-          <div class="nb"><div class="n gold-t">CPD</div><div class="t">UK certified programmes</div></div>
-          <div class="nb"><div class="n gx">8</div><div class="t">Sector sandboxes and scenarios</div></div>
-        </div>
+        <figure class="ph a">
+          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%209.23.48%20AM%20(1).jpeg" alt="Mohammad Arshad presenting to a full room of professionals in Dubai">
+          <figcaption class="cap-t"><b>Practitioner-led sessions</b><span>Full rooms, live demos, real discussion</span></figcaption>
+        </figure>
+        <figure class="ph b">
+          <img class="z-speaker" src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%209.23.48%20AM%20(1).jpeg" alt="Trainer demonstrating an AI build on screen">
+          <figcaption class="cap-t"><b>Live builds on screen</b><span>We code and demo, not just present</span></figcaption>
+        </figure>
+        <figure class="ph c">
+          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%2012.21.12%20PM%20(4).jpeg" alt="Group of participants after a Decoding Data Science session">
+          <figcaption class="cap-t"><b>Cohorts that keep learning</b><span>Dubai</span></figcaption>
+        </figure>
+        <figure class="ph d">
+          <img class="z-room" src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%209.23.48%20AM%20(1).jpeg" alt="Participants engaged during a hands-on session">
+          <figcaption class="cap-t"><b>Hands-on, every hour</b><span>Teams work on their own problems</span></figcaption>
+        </figure>
+        <figure class="ph e">
+          <img class="z-group" src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/WhatsApp%20Image%202026-07-03%20at%2012.21.12%20PM%20(4).jpeg" alt="Participants from different industries at a DDS session">
+          <figcaption class="cap-t"><b>Cross-industry teams</b><span>Engineers, analysts and managers</span></figcaption>
+        </figure>
+      </div>
+      <p class="swipe-hint" aria-hidden="true">Swipe for more photos →</p>
+      <div class="numbers rv">
+        <div class="nb"><div class="n gx">1,000+</div><div class="t">AI and data events delivered</div></div>
+        <div class="nb"><div class="n gx">194K+</div><div class="t">Learners in our community</div></div>
+        <div class="nb"><div class="n gold-t">CPD</div><div class="t">UK certified programmes</div></div>
+        <div class="nb"><div class="n gx">50+</div><div class="t">Countries reached</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS (replace slots with real, approved quotes) ===== -->
-  <section class="pillars">
+  <!-- ===== TESTIMONIALS: hidden until real, approved quotes are added. Remove the "hidden" attribute to show. ===== -->
+  <section class="pillars" hidden>
     <div class="wrap">
       <div class="head center rv">
         <span class="kicker gold">Client voices</span>
@@ -654,20 +759,15 @@
         </div>
         <ul class="ticks">
           <li>CPD certificate for every participant who completes the programme</li>
-          <li>Learning hours recorded for professional development</li>
+          <li>CPD learning hours stated on every certificate, with a unique certificate ID and QR verification</li>
           <li>Recognised across industries and professional bodies</li>
         </ul>
       </div>
       <div class="rv">
         <div class="cert-frame">
-          <!-- REPLACE: swap this placeholder with Varun's CPD UK certificate image:
-               <img src="YOUR-CERTIFICATE-URL" alt="CPD UK certificate issued by Decoding Data Science"> -->
-          <div class="cert-ph">
-            <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/TCPDS%20CERTIFIED%20-%20JPEG%20Pantone%202593%202015.jpg" alt="">
-            <b>Certificate of Attendance</b>
-            <span>CPD UK certified · Decoding Data Science</span>
-          </div>
+          <img src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/Worod%20AI%20Accelerator%20Jul.png" alt="Sample CPD certified certificate of completion issued by Decoding Data Science, 10 CPD learning hours">
         </div>
+        <p class="cert-note">Sample certificate: AI Accelerator Bootcamp, 10 CPD learning hours</p>
       </div>
     </div>
   </section>
@@ -782,6 +882,12 @@
     q.addEventListener('click',function(){var it=q.parentElement,a=it.querySelector('.faq-a'),o=it.classList.toggle('open');q.setAttribute('aria-expanded',String(o));a.style.maxHeight=o?a.scrollHeight+'px':'0'});
   });
 
+  /* ---------- Floating CTA appears after the hero ---------- */
+  var fc=root.querySelector('.float-cta'), hero=root.querySelector('.hero'), fin=root.querySelector('#dds-contact');
+  function fcToggle(){var y=window.scrollY||0, h=hero?hero.offsetHeight:600, f=fin?fin.getBoundingClientRect().top:1e9;
+    fc.classList.toggle('on', y>h-120 && f>window.innerHeight*0.6)}
+  if(fc){window.addEventListener('scroll',fcToggle,{passive:true});fcToggle()}
+
   if(reduce||!('IntersectionObserver' in window)) return;
 
   /* ---------- Count-up on hero stats ---------- */
@@ -798,3 +904,6 @@
   setTimeout(function(){root.querySelectorAll('.rv.pre').forEach(function(el){el.classList.remove('pre')})},7000);
 })();
 </script>
+<!-- WP-END -->
+</body>
+</html>
